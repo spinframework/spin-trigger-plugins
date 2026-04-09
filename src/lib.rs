@@ -1,4 +1,3 @@
-use anyhow::{anyhow, Context, Result};
 use serde::{Deserialize, Serialize};
 use spin_factors::RuntimeFactors;
 use spin_trigger::{cli::NoCliArgs, App, Trigger, TriggerApp};
@@ -8,6 +7,7 @@ use std::{
 };
 use tokio::signal;
 use tokio_cron_scheduler::{Job, JobScheduler};
+use wasmtime::error::Context;
 
 wasmtime::component::bindgen!({
     world: "spin-cron",
@@ -135,7 +135,7 @@ impl<F: RuntimeFactors> CronEventProcessor<F> {
             .context("cron handler trapped")?;
         res.map_err(|e| {
             tracing::error!("Component {} failed: {e}", self.component.id);
-            anyhow!("Component {} failed: {e}", self.component.id)
+            anyhow::anyhow!("Component {} failed: {e}", self.component.id)
         })
     }
 }
