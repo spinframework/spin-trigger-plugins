@@ -49,7 +49,7 @@ fn preamble() -> proc_macro2::TokenStream {
             path: #WIT_PATH,
             runtime_path: "::spin_cron_sdk::wit_bindgen::rt",
             with: {
-                "fermyon:spin-cron/cron-types@2.0.0": ::spin_cron_sdk,
+                "spin:cron/cron-types@3.0.0": ::spin_cron_sdk,
             }
         });
         pub struct Cron;

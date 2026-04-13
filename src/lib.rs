@@ -14,7 +14,7 @@ wasmtime::component::bindgen!({
     exports: { default: async },
 });
 
-use fermyon::spin_cron::cron_types as cron;
+use spin::cron::cron_types as cron;
 
 pub struct CronTrigger {
     cron_components: Vec<Component>,

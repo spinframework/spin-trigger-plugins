@@ -1,4 +1,4 @@
-package fermyon:spin-cron@2.0.0;
+package spin:cron@3.0.0;
 
 interface cron-types {
     record metadata {

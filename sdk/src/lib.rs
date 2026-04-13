@@ -11,9 +11,9 @@ pub mod wit {
 }
 
 #[doc(inline)]
-pub use wit::fermyon::spin_cron::cron_types::Error;
+pub use wit::spin::cron::cron_types::Error;
 #[doc(inline)]
-pub use wit::fermyon::spin_cron::cron_types::Metadata;
+pub use wit::spin::cron::cron_types::Metadata;
 
 #[doc(hidden)]
 pub use wit_bindgen;
