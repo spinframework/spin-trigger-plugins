@@ -1,7 +1,7 @@
 spin_manifest_version = 2
 
 [application]
-name = "cron-sampl-py"
+name = "cron-sample-py"
 authors = ["The Spin authors"]
 version = "0.1.0"
 
@@ -12,6 +12,6 @@ cron_expression = "1/2 * * * * *"
 [component.every2seconds]
 source = "app.wasm"
 [component.every2seconds.build]
-command = "componentize-py -d ../cron.wit -w spin-cron componentize -m spin_sdk=spin-imports app -o app.wasm"
+command = "componentize-py --world-module spin_cron -d ../cron.wit -w spin:cron/spin-cron@3.0.0 -w spin:up/platform@4.0.0 componentize app -o app.wasm"
 [component.every2seconds.variables]
 something = "2s"

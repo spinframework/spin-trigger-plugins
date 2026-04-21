@@ -7,7 +7,6 @@ use std::{
 };
 use tokio::signal;
 use tokio_cron_scheduler::{Job, JobScheduler};
-use wasmtime::error::Context;
 
 wasmtime::component::bindgen!({
     world: "spin-cron",
@@ -15,7 +14,7 @@ wasmtime::component::bindgen!({
     exports: { default: async },
 });
 
-use fermyon::spin_cron::cron_types as cron;
+use spin::cron::cron_types as cron;
 
 pub struct CronTrigger {
     cron_components: Vec<Component>,
@@ -129,13 +128,21 @@ impl<F: RuntimeFactors> CronEventProcessor<F> {
         let (instance, mut store) = instance_builder.instantiate(()).await?;
         let instance = SpinCron::new(&mut store, &instance)?;
         // ...and call the entry point
-        let res = instance
-            .call_handle_cron_event(&mut store, metadata)
+        store
+            .as_mut()
+            .run_concurrent(async |accessor| {
+                instance.call_handle_cron_event(accessor, metadata).await
+            })
             .await
-            .context("cron handler trapped")?;
-        res.map_err(|e| {
-            tracing::error!("Component {} failed: {e}", self.component.id);
-            anyhow::anyhow!("Component {} failed: {e}", self.component.id)
-        })
+            .map_err(|e| self.log_and_anyhowify(e))?
+            .map_err(|e| self.log_and_anyhowify(e))?
+            .map_err(|e| self.log_and_anyhowify(e))?;
+
+        Ok(())
+    }
+
+    fn log_and_anyhowify(&self, e: impl std::fmt::Display) -> anyhow::Error {
+        tracing::error!("Component {} failed: {e}", self.component.id);
+        anyhow::anyhow!("Component {} failed: {e}", self.component.id)
     }
 }
