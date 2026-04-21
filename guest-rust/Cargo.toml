@@ -9,7 +9,7 @@ rust-version = "1.87"
 crate-type = ["cdylib"]
 
 [dependencies]
-spin-sdk = { git = "https://github.com/spinframework/spin-rust-sdk" }
+spin-sdk = "6"
 spin-cron-sdk = { path = "../sdk" }
 
 [workspace]
