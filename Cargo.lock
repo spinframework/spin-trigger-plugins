@@ -6629,7 +6629,7 @@ dependencies = [
 
 [[package]]
 name = "trigger-sqs"
-version = "0.12.2"
+version = "0.13.0"
 dependencies = [
  "anyhow",
  "aws-config",
