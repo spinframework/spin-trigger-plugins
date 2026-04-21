@@ -5234,7 +5234,7 @@ dependencies = [
 
 [[package]]
 name = "spin-cron-macro"
-version = "0.4.2"
+version = "0.5.0"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -5243,7 +5243,7 @@ dependencies = [
 
 [[package]]
 name = "spin-cron-sdk"
-version = "0.4.2"
+version = "0.5.0"
 dependencies = [
  "spin-cron-macro",
  "wit-bindgen 0.54.0",
@@ -6659,7 +6659,7 @@ dependencies = [
 
 [[package]]
 name = "trigger-cron"
-version = "0.4.2"
+version = "0.5.0"
 dependencies = [
  "anyhow",
  "async-trait",
