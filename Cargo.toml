@@ -1,0 +1,50 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/trigger-sqs",
+    "crates/trigger-mqtt",
+    "crates/trigger-mqtt/sdk",
+    "crates/trigger-mqtt/sdk/macro",
+    "crates/trigger-cron",
+    "crates/trigger-cron/sdk",
+    "crates/trigger-cron/sdk/macro",
+    "crates/trigger-command",
+]
+
+[workspace.package]
+authors = ["The Spin Authors"]
+edition = "2021"
+rust-version = "1.91"
+license = "Apache-2.0"
+repository = "https://github.com/spinframework/spin-trigger-plugins"
+
+[workspace.dependencies]
+anyhow = "1.0.100"
+async-trait = "0.1"
+clap = { version = "4", features = ["derive", "env"] }
+futures = "0.3.31"
+serde = "1.0.228"
+tokio = { version = "1" }
+tokio-scoped = "0.2.0"
+tokio-cron-scheduler = "0.13"
+tracing = { version = "0.1.41", features = ["log"] }
+tracing-subscriber = { version = "0.3.7", features = ["env-filter"] }
+wasmtime = "43"
+wasmtime-wasi = { version = "43", features = ["p2", "p3"] }
+wit-bindgen = "0.54.0"
+openssl = "0.10"
+rustls = { version = "0.23", default-features = false, features = ["ring", "std"] }
+paho-mqtt = { version = "0.13.3", features = ["vendored-ssl"] }
+aws-config = { version = "1.1.7", features = ["behavior-version-latest", "rt-tokio"], default-features = false }
+aws-sdk-sqs = { version = "1.93.0", features = ["rustls"], default-features = false }
+
+# Spin (pinned to a single revision across all triggers).
+spin-app = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
+spin-core = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
+spin-expressions = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
+spin-factor-variables = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
+spin-factor-wasi = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
+spin-factors = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
+spin-runtime-factors = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
+spin-telemetry = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
+spin-trigger = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }

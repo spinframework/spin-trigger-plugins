@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Release trigger-sqs
+
+on:
+  push:
+    tags:
+      - "sqs-v*"
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Existing release tag to publish to (e.g. sqs-v0.13.1)"
+        required: true
+        type: string
+
+jobs:
+  release:
+    uses: ./.github/workflows/release-trigger.yml
+    permissions:
+      contents: write
+    with:
+      trigger: sqs
+      crate: trigger-sqs
+      package: trigger-sqs
+      release_tag: ${{ inputs.release_tag || '' }}

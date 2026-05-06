@@ -1,0 +1,166 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Release trigger plugin (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      trigger:
+        description: "Short trigger name (e.g. sqs, mqtt, cron, command)"
+        required: true
+        type: string
+      crate:
+        description: "Crate directory under crates/ (e.g. trigger-sqs)"
+        required: true
+        type: string
+      package:
+        description: "Cargo package / binary name (e.g. trigger-sqs)"
+        required: true
+        type: string
+      rust_toolchain:
+        description: "Rust toolchain version"
+        required: false
+        type: string
+        default: "1.93"
+      spin_version:
+        description: "Spin CLI version to install"
+        required: false
+        type: string
+        default: "canary"
+      pluginify_url:
+        description: "URL of the spin-pluginify plugin manifest"
+        required: false
+        type: string
+        default: ""
+      release_tag:
+        description: "GitHub release tag to publish to (defaults to the pushed tag)"
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build ${{ inputs.package }} (${{ matrix.config.target }})
+    runs-on: ${{ matrix.config.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - { target: "x86_64-unknown-linux-gnu",  os: "ubuntu-22.04",   arch: "amd64",   extension: "", extraArg: "--features openssl/vendored" }
+          - { target: "aarch64-unknown-linux-gnu", os: "ubuntu-22.04",   arch: "aarch64", extension: "", extraArg: "--features openssl/vendored" }
+          - { target: "x86_64-apple-darwin",       os: "macos-15-intel", arch: "amd64",   extension: "" }
+          - { target: "aarch64-apple-darwin",      os: "macos-14",       arch: "aarch64", extension: "" }
+          - { target: "x86_64-pc-windows-msvc",    os: "windows-latest", arch: "amd64",   extension: ".exe" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ inputs.rust_toolchain }}
+          targets: ${{ matrix.config.target }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: "release-${{ inputs.package }}-${{ matrix.config.target }}-${{ hashFiles('Cargo.lock') }}"
+          cache-on-failure: "true"
+      - name: Install Spin
+        uses: rajatjindal/setup-actions/spin@main
+        with:
+          version: ${{ inputs.spin_version }}
+      - name: Install pluginify
+        shell: bash
+        run: |
+          if [ -n "${{ inputs.pluginify_url }}" ]; then
+            spin plugins install --url "${{ inputs.pluginify_url }}" --yes
+          else
+            spin plugins install pluginify --yes
+          fi
+      - name: Set up cross-compiled linux aarch64 build
+        if: matrix.config.target == 'aarch64-unknown-linux-gnu'
+        run: |
+          sudo apt update
+          sudo apt install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+          mkdir -p ${HOME}/.cargo
+          echo '[target.aarch64-unknown-linux-gnu]' >> ${HOME}/.cargo/config.toml
+          echo 'linker = "aarch64-linux-gnu-gcc"' >> ${HOME}/.cargo/config.toml
+      - name: Build plugin binary
+        run: cargo build -p ${{ inputs.package }} --release --target ${{ matrix.config.target }} ${{ matrix.config.extraArg }}
+      - name: Copy plugin binary to standard location
+        shell: bash
+        run: |
+          mkdir -p target/release
+          cp target/${{ matrix.config.target }}/release/${{ inputs.package }}${{ matrix.config.extension }} \
+             target/release/${{ inputs.package }}${{ matrix.config.extension }}
+      - name: Pluginify plugin binary
+        working-directory: crates/${{ inputs.crate }}
+        run: spin pluginify --arch ${{ matrix.config.arch }}
+      - name: Archive pluginified
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.package }}-${{ matrix.config.os }}-${{ matrix.config.arch }}
+          path: |
+            crates/${{ inputs.crate }}/*.tar.gz
+            crates/${{ inputs.crate }}/*.json
+
+  package:
+    name: Package and publish ${{ inputs.package }}
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Spin
+        uses: rajatjindal/setup-actions/spin@main
+        with:
+          version: ${{ inputs.spin_version }}
+      - name: Install pluginify
+        shell: bash
+        run: |
+          if [ -n "${{ inputs.pluginify_url }}" ]; then
+            spin plugins install --url "${{ inputs.pluginify_url }}" --yes
+          else
+            spin plugins install pluginify --yes
+          fi
+      - name: Resolve release tag
+        shell: bash
+        run: |
+          if [ -n "${{ inputs.release_tag }}" ]; then
+            echo "RELEASE_TAG=${{ inputs.release_tag }}" >> $GITHUB_ENV
+          else
+            echo "RELEASE_TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
+          fi
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: ${{ inputs.package }}-*
+          path: crates/${{ inputs.crate }}/artifacts
+          merge-multiple: true
+      - name: Stage release files
+        working-directory: crates/${{ inputs.crate }}
+        shell: bash
+        run: |
+          mv artifacts/*.tar.gz . 2>/dev/null || true
+          mv artifacts/*.json . 2>/dev/null || true
+          ls -la
+      - name: Merge plugin manifest
+        working-directory: crates/${{ inputs.crate }}
+        run: |
+          spin pluginify --merge \
+            --release-url-base https://github.com/${{ github.repository }}/releases/download/${{ env.RELEASE_TAG }}/ \
+            > ${{ inputs.package }}.json
+          cat ${{ inputs.package }}.json
+      - name: Upload tarballs to GitHub release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: crates/${{ inputs.crate }}/*.tar.gz
+          file_glob: true
+          tag: ${{ env.RELEASE_TAG }}
+          overwrite: true
+      - name: Upload manifest to GitHub release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: crates/${{ inputs.crate }}/${{ inputs.package }}.json
+          tag: ${{ env.RELEASE_TAG }}
+          overwrite: true

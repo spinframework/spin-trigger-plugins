@@ -3,4 +3,4 @@ description = "A Spin trigger that executes the WASI main function of a componen
 version = "0.6.0"
 spin_compatibility = ">=2.0"
 license = "Apache-2.0"
-package = "./target/release/trigger-command"
+package = "../../target/release/trigger-command"

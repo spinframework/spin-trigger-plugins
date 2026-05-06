@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Release trigger-mqtt
+
+on:
+  push:
+    tags:
+      - "mqtt-v*"
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Existing release tag to publish to (e.g. mqtt-v0.8.1)"
+        required: true
+        type: string
+
+jobs:
+  release:
+    uses: ./.github/workflows/release-trigger.yml
+    permissions:
+      contents: write
+    with:
+      trigger: mqtt
+      crate: trigger-mqtt
+      package: trigger-mqtt
+      release_tag: ${{ inputs.release_tag || '' }}

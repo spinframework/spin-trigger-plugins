@@ -1,8 +1,11 @@
 [package]
 name = "spin-mqtt-sdk"
-version = { workspace = true }
-edition = { workspace = true }
-rust-version = { workspace = true }
+version = "0.2.0"
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license = "MIT"
+repository.workspace = true
 include = ["../spin-mqtt.wit"]
 
 [lib]

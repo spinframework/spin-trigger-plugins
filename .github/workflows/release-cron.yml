@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Release trigger-cron
+
+on:
+  push:
+    tags:
+      - "cron-v*"
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Existing release tag to publish to (e.g. cron-v0.5.1)"
+        required: true
+        type: string
+
+jobs:
+  release:
+    uses: ./.github/workflows/release-trigger.yml
+    permissions:
+      contents: write
+    with:
+      trigger: cron
+      crate: trigger-cron
+      package: trigger-cron
+      release_tag: ${{ inputs.release_tag || '' }}

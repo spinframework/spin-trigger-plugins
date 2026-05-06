@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Release trigger-command
+
+on:
+  push:
+    tags:
+      - "command-v*"
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Existing release tag to publish to (e.g. command-v0.6.1)"
+        required: true
+        type: string
+
+jobs:
+  release:
+    uses: ./.github/workflows/release-trigger.yml
+    permissions:
+      contents: write
+    with:
+      trigger: command
+      crate: trigger-command
+      package: trigger-command
+      release_tag: ${{ inputs.release_tag || '' }}

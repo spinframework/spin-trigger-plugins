@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  RUST_TOOLCHAIN: "1.93"
+
+jobs:
+  lint:
+    name: Lint (fmt + clippy + audit)
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUST_TOOLCHAIN }}
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: "lint-${{ hashFiles('Cargo.lock') }}"
+          cache-on-failure: "true"
+      - name: cargo fmt
+        run: cargo fmt --all -- --check
+      - name: cargo clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+      - name: cargo audit
+        run: |
+          cargo install cargo-audit --locked
+          cargo audit
+
+  build:
+    name: Build (${{ matrix.config.target }})
+    runs-on: ${{ matrix.config.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - { target: "x86_64-unknown-linux-gnu", os: "ubuntu-22.04",   arch: "amd64",   extension: "", extraArg: "--features openssl/vendored" }
+          - { target: "aarch64-unknown-linux-gnu", os: "ubuntu-22.04",  arch: "aarch64", extension: "", extraArg: "--features openssl/vendored" }
+          - { target: "x86_64-apple-darwin",       os: "macos-15-intel", arch: "amd64",   extension: "" }
+          - { target: "aarch64-apple-darwin",      os: "macos-14",       arch: "aarch64", extension: "" }
+          - { target: "x86_64-pc-windows-msvc",    os: "windows-latest", arch: "amd64",   extension: ".exe" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUST_TOOLCHAIN }}
+          targets: ${{ matrix.config.target }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: "build-${{ matrix.config.target }}-${{ hashFiles('Cargo.lock') }}"
+          cache-on-failure: "true"
+      - name: Set up cross-compiled linux aarch64 build
+        if: matrix.config.target == 'aarch64-unknown-linux-gnu'
+        run: |
+          sudo apt update
+          sudo apt install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+          mkdir -p ${HOME}/.cargo
+          echo '[target.aarch64-unknown-linux-gnu]' >> ${HOME}/.cargo/config.toml
+          echo 'linker = "aarch64-linux-gnu-gcc"' >> ${HOME}/.cargo/config.toml
+      - name: cargo build (workspace)
+        run: cargo build --workspace --release --target ${{ matrix.config.target }} ${{ matrix.config.extraArg }}
+
+  test:
+    name: Unit tests
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUST_TOOLCHAIN }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: "test-${{ hashFiles('Cargo.lock') }}"
+          cache-on-failure: "true"
+      - name: cargo test
+        run: cargo test --workspace --no-fail-fast

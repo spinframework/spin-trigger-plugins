@@ -1,33 +1,27 @@
 [package]
 name = "trigger-command"
-version = { workspace = true }
-authors = { workspace = true }
-edition = { workspace = true }
-rust-version = "1.91"
-
-[workspace.package]
 version = "0.6.0"
-authors = ["Spin Framework Contributors"]
-edition = "2021"
-
-[workspace]
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
 
 [dependencies]
-anyhow = "1.0"
-clap = { version = "4", features = ["derive", "env"] }
-serde = "1.0"
-spin-trigger = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac" }
-spin-core = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac" }
-spin-telemetry = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac" }
-spin-factors = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac" }
-spin-factor-wasi = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac" }
-spin-runtime-factors = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac" }
-tokio = { version = "1", features = ["rt", "macros"] }
-tracing = { version = "0.1", features = ["log"] }
-wasmtime-wasi = { version = "43", features = ["p2", "p3"] }
+anyhow = { workspace = true }
+clap = { workspace = true }
+serde = { workspace = true }
+spin-trigger = { workspace = true }
+spin-core = { workspace = true }
+spin-telemetry = { workspace = true }
+spin-factors = { workspace = true }
+spin-factor-wasi = { workspace = true }
+spin-runtime-factors = { workspace = true }
+tokio = { workspace = true, features = ["rt", "macros"] }
+tracing = { workspace = true }
+wasmtime-wasi = { workspace = true }
 
 [target.'cfg(target_os = "linux")'.dependencies]
 # This needs to be an explicit dependency to enable
 # '--features openssl/vendored', which is used for Linux releases.
-openssl = { version = "0.10" }
-
+openssl = { workspace = true }
