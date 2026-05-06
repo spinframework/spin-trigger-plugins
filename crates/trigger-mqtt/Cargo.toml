@@ -24,3 +24,8 @@ tokio = { workspace = true, features = ["full"] }
 tracing = { workspace = true }
 paho-mqtt = { workspace = true }
 wasmtime = { workspace = true }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+# This needs to be an explicit dependency to enable
+# '--features openssl/vendored', which is used for Linux releases.
+openssl = { workspace = true }
