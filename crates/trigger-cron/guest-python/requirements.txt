@@ -1,0 +1,2 @@
+spin-sdk @ git+https://github.com/spinframework/spin-python-sdk@main
+componentize-py==0.23.0

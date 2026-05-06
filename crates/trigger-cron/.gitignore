@@ -1,0 +1,8 @@
+target
+*.tar.gz
+trigger-cron.json
+.spin
+venv
+__pycache__
+*.wasm
+spin_cron

@@ -1,0 +1,16 @@
+[package]
+name = "spin-cron-macro"
+version = { workspace = true }
+authors = { workspace = true }
+edition = { workspace = true }
+rust-version = { workspace = true }
+include = ["../../cron.wit"]
+
+[lib]
+name = "spin_cron_macro"
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "1"
+quote = "1.0"
+syn = { version = "1.0", features = ["full"] }

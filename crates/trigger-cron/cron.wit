@@ -1,0 +1,20 @@
+package spin:cron@3.0.0;
+
+interface cron-types {
+    record metadata {
+        timestamp: u64,
+    }
+
+    variant error {
+        other(string),
+    }
+}
+
+world spin-cron {
+    use cron-types.{metadata, error};
+    export handle-cron-event: async func(metadata: metadata) -> result<_, error>;
+}
+
+world spin-cron-sdk {
+    import cron-types;
+}
