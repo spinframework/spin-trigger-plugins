@@ -1,0 +1,14 @@
+spin_manifest_version = 2
+
+[application]
+authors = ["Spin Framework Contributors"]
+description = "Just a command trigger"
+name = "command-trigger-hello-world"
+version = "0.1.0"
+
+[[trigger.command]]
+component = "hello-world"
+
+[component.hello-world]
+source = "target/wasm32-wasip2/release/hello_world.wasm"
+build = ["cargo build --target wasm32-wasip2 --release"]

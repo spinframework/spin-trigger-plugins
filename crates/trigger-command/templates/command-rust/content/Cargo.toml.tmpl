@@ -1,0 +1,14 @@
+[package]
+name = "{{project-name | kebab_case}}"
+authors = ["{{authors}}"]
+description = "{{project-description}}"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+spin-sdk = "5.0.0"
+spin-executor =  "5.0.0"
+wit-bindgen-rt = { version = "0.43.0", features = ["bitflags"] }
+
+[workspace]
