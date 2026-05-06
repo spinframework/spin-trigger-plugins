@@ -1,0 +1,39 @@
+spin_manifest_version = 2
+
+[application]
+name = "mqtt-app"
+version = "0.1.0"
+description = "Demo app to receive MQTT messages."
+authors = ["The Spin authors"]
+
+[application.trigger.mqtt]
+address = "mqtt://localhost:1883"
+username = "admin"
+password = "password"
+keep_alive_interval = "30"
+
+[[trigger.mqtt]]
+id = "trigger-mqtt-c01"
+component = "mqtt-c01"
+topic = "messages-in01"
+qos = "1"
+
+[[trigger.mqtt]]
+id = "trigger-mqtt-c02"
+component = "mqtt-c02"
+topic = "messages-in02"
+qos = "0"
+
+[component.mqtt-c01]
+source = "target/wasm32-wasip2/release/mqtt_app.wasm"
+allowed_outbound_hosts = ["mqtt://localhost:1883"]
+
+[component.mqtt-c01.build]
+command = "cargo build --target wasm32-wasip2 --release"
+
+[component.mqtt-c02]
+source = "target/wasm32-wasip2/release/mqtt_app.wasm"
+allowed_outbound_hosts = ["mqtt://localhost:1883"]
+
+[component.mqtt-c02.build]
+command = "cargo build --target wasm32-wasip2 --release"

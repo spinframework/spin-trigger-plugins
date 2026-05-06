@@ -1,0 +1,14 @@
+{
+    "cSpell.words": [
+        "bindgen",
+        "czvf",
+        "Fermyon",
+        "mqtt",
+        "Paho",
+        "wasmtime"
+    ],
+    "rust-analyzer.linkedProjects": [
+        "./Cargo.toml",
+        "./examples/mqtt-app/Cargo.toml",        
+    ]
+}
