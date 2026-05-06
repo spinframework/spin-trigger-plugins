@@ -4,6 +4,13 @@ name: Release trigger-command
 
 on:
   push:
+    branches: [main]
+    paths:
+      - 'crates/trigger-command/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/release-command.yml'
+      - '.github/workflows/release-trigger.yml'
     tags:
       - "command-v*"
   workflow_dispatch:
@@ -23,3 +30,4 @@ jobs:
       crate: trigger-command
       package: trigger-command
       release_tag: ${{ inputs.release_tag || '' }}
+      canary: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}

@@ -4,6 +4,13 @@ name: Release trigger-mqtt
 
 on:
   push:
+    branches: [main]
+    paths:
+      - 'crates/trigger-mqtt/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/release-mqtt.yml'
+      - '.github/workflows/release-trigger.yml'
     tags:
       - "mqtt-v*"
   workflow_dispatch:
@@ -23,3 +30,4 @@ jobs:
       crate: trigger-mqtt
       package: trigger-mqtt
       release_tag: ${{ inputs.release_tag || '' }}
+      canary: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}

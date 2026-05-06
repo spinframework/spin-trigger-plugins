@@ -37,6 +37,11 @@ on:
         required: false
         type: string
         default: ""
+      canary:
+        description: "If true, recreate '<trigger>-canary' tag/release as a prerelease"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -124,7 +129,9 @@ jobs:
       - name: Resolve release tag
         shell: bash
         run: |
-          if [ -n "${{ inputs.release_tag }}" ]; then
+          if [ "${{ inputs.canary }}" = "true" ]; then
+            echo "RELEASE_TAG=${{ inputs.trigger }}-canary" >> $GITHUB_ENV
+          elif [ -n "${{ inputs.release_tag }}" ]; then
             echo "RELEASE_TAG=${{ inputs.release_tag }}" >> $GITHUB_ENV
           else
             echo "RELEASE_TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
@@ -149,6 +156,24 @@ jobs:
             --release-url-base https://github.com/${{ github.repository }}/releases/download/${{ env.RELEASE_TAG }}/ \
             > ${{ inputs.package }}.json
           cat ${{ inputs.package }}.json
+
+      # Canary: delete and recreate the per-trigger '<trigger>-canary' tag and
+      # release as a prerelease, then upload the freshly-built artifacts.
+      - name: Delete previous canary tag/release
+        if: inputs.canary == true
+        uses: dev-drprasad/delete-tag-and-release@v0.2.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+      - name: Recreate canary tag and prerelease
+        if: inputs.canary == true
+        uses: ncipollo/release-action@v1.10.0
+        with:
+          tag: ${{ env.RELEASE_TAG }}
+          allowUpdates: true
+          prerelease: true
+
       - name: Upload tarballs to GitHub release
         uses: svenstaro/upload-release-action@v2
         with:

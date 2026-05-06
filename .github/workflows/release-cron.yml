@@ -4,6 +4,13 @@ name: Release trigger-cron
 
 on:
   push:
+    branches: [main]
+    paths:
+      - 'crates/trigger-cron/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/release-cron.yml'
+      - '.github/workflows/release-trigger.yml'
     tags:
       - "cron-v*"
   workflow_dispatch:
@@ -23,3 +30,4 @@ jobs:
       crate: trigger-cron
       package: trigger-cron
       release_tag: ${{ inputs.release_tag || '' }}
+      canary: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
