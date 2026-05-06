@@ -1,16 +1,7 @@
 # Spin Trigger Plugins
 
 This repository is the consolidated home for the Spin trigger plugins maintained
-by the [Spin Framework](https://github.com/spinframework) project. It replaces
-the previously separate repositories:
-
-- [`spin-trigger-sqs`](https://github.com/spinframework/spin-trigger-sqs)
-- [`spin-trigger-mqtt`](https://github.com/spinframework/spin-trigger-mqtt)
-- [`spin-trigger-cron`](https://github.com/spinframework/spin-trigger-cron)
-- [`spin-trigger-command`](https://github.com/spinframework/spin-trigger-command)
-
-See [spinframework/spin#3457](https://github.com/spinframework/spin/issues/3457)
-for the consolidation proposal.
+by the [Spin Framework](https://github.com/spinframework) project.
 
 ## Layout
 
@@ -20,8 +11,8 @@ crates/
   trigger-mqtt/      # MQTT trigger
   trigger-cron/      # Cron trigger
   trigger-command/   # Command trigger
-templates/           # Spin templates (per trigger)
-examples/            # Example apps (per trigger)
+templates/           # Spin templates
+examples/            # Example apps
 ```
 
 ## Building
