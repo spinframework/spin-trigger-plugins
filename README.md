@@ -21,18 +21,6 @@ examples/            # Example apps
 cargo build --workspace
 ```
 
-## Releases
-
-Each trigger is released independently. A push of a tag of the form
-`<trigger>-v<version>` (e.g. `sqs-v0.13.0`, `mqtt-v0.5.0`, `cron-v0.4.0`,
-`command-v0.2.0`) triggers a release workflow that builds the plugin,
-runs `spin-pluginify`, and publishes a GitHub Release containing the
-plugin tarballs and manifest.
-
-In addition, every push to `main` updates the corresponding per-trigger
-`<trigger>-canary` GitHub Release for any trigger whose source files
-changed in the push (paths-filtered).
-
 ## License
 
 This project is licensed under the Apache License, Version 2.0

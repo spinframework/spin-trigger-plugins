@@ -64,14 +64,22 @@ Pushing a tag triggers the corresponding release workflow
 
 - Builds the plugin for all supported targets.
 - Runs `spin pluginify` to package the plugin and produce the manifest.
-- Uploads the tarballs and merged manifest to a GitHub Release for the
-  pushed tag.
+- Uploads the tarballs to a GitHub Release for the pushed tag.
+- Renders `crates/<trigger>/.spin-plugin.json.tmpl` with sha256s computed
+  from the uploaded tarballs, uploads it as `<package>.json` plus a
+  `checksums-<tag>.txt` asset, and pings the
+  [`spin-plugin-releaser`](https://github.com/rajatjindal/spin-plugin-releaser)
+  bot to open a PR against
+  [spinframework/spin-plugins](https://github.com/spinframework/spin-plugins)
+  adding `manifests/<package>/<package>@<version>.json`.
 
 After the release workflow finishes:
 
-1. Open a PR in the
-   [spinframework/spin-plugins](https://github.com/spinframework/spin-plugins)
-   repo to update the manifest for that trigger.
+1. Review and merge the auto-generated PR in
+   [spinframework/spin-plugins](https://github.com/spinframework/spin-plugins).
+   If the PR does not appear, check the `Open spin-plugins manifest PR`
+   step in the workflow run and fall back to opening it manually using
+   the `<package>.json` attached to the GitHub Release.
 2. If applicable, open PR(s) in
    [spinframework/spin-docs](https://github.com/spinframework/spin-docs)
    for any new features or behaviour changes.
