@@ -141,21 +141,23 @@ jobs:
         with:
           pattern: ${{ inputs.package }}-*
           path: crates/${{ inputs.crate }}/artifacts
-          merge-multiple: true
-      - name: Stage release files
-        working-directory: crates/${{ inputs.crate }}
-        shell: bash
-        run: |
-          mv artifacts/*.tar.gz . 2>/dev/null || true
-          mv artifacts/*.json . 2>/dev/null || true
-          ls -la
+          merge-multiple: false
+      - name: Display structure of downloaded files
+        working-directory: crates/${{ inputs.crate }}/artifacts
+        run: ls -R
       - name: Merge plugin manifest
-        working-directory: crates/${{ inputs.crate }}
+        # `spin pluginify --merge` expects a set of sibling subdirectories,
+        # each containing exactly one per-platform manifest (.json) and one
+        # .tar.gz. We therefore run it from the `artifacts/` directory where
+        # each downloaded artifact lives in its own subdirectory. Flattening
+        # the artifacts into a single directory would cause the per-platform
+        # `${{ inputs.package }}.json` files to overwrite each other.
+        working-directory: crates/${{ inputs.crate }}/artifacts
         run: |
           spin pluginify --merge \
             --release-url-base https://github.com/${{ github.repository }}/releases/download/${{ env.RELEASE_TAG }}/ \
-            > ${{ inputs.package }}.json
-          cat ${{ inputs.package }}.json
+            > ../${{ inputs.package }}.json
+          cat ../${{ inputs.package }}.json
 
       # Canary: delete and recreate the per-trigger '<trigger>-canary' tag and
       # release as a prerelease, then upload the freshly-built artifacts.
@@ -178,7 +180,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: crates/${{ inputs.crate }}/*.tar.gz
+          file: crates/${{ inputs.crate }}/artifacts/*/*.tar.gz
           file_glob: true
           tag: ${{ env.RELEASE_TAG }}
           overwrite: true
