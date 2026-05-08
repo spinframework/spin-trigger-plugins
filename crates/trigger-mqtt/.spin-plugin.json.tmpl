@@ -1,0 +1,34 @@
+{
+  "name": "trigger-mqtt",
+  "description": "A Spin trigger for MQTT events",
+  "version": "{{Version}}",
+  "spinCompatibility": ">=2.0",
+  "license": "Apache-2.0",
+  "packages": [
+    {
+      "os": "linux",
+      "arch": "amd64",
+      {{#addURLAndSha}}https://github.com/spinframework/spin-trigger-plugins/releases/download/{{TagName}}/trigger-mqtt-{{Version}}-linux-amd64.tar.gz{{/addURLAndSha}}
+    },
+    {
+      "os": "linux",
+      "arch": "aarch64",
+      {{#addURLAndSha}}https://github.com/spinframework/spin-trigger-plugins/releases/download/{{TagName}}/trigger-mqtt-{{Version}}-linux-aarch64.tar.gz{{/addURLAndSha}}
+    },
+    {
+      "os": "macos",
+      "arch": "amd64",
+      {{#addURLAndSha}}https://github.com/spinframework/spin-trigger-plugins/releases/download/{{TagName}}/trigger-mqtt-{{Version}}-macos-amd64.tar.gz{{/addURLAndSha}}
+    },
+    {
+      "os": "macos",
+      "arch": "aarch64",
+      {{#addURLAndSha}}https://github.com/spinframework/spin-trigger-plugins/releases/download/{{TagName}}/trigger-mqtt-{{Version}}-macos-aarch64.tar.gz{{/addURLAndSha}}
+    },
+    {
+      "os": "windows",
+      "arch": "amd64",
+      {{#addURLAndSha}}https://github.com/spinframework/spin-trigger-plugins/releases/download/{{TagName}}/trigger-mqtt-{{Version}}-windows-amd64.tar.gz{{/addURLAndSha}}
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "trigger-cron",
+  "description": "A Spin trigger for Cron events",
+  "version": "{{Version}}",
+  "spinCompatibility": ">=3.0",
+  "license": "Apache-2.0",
+  "packages": [
+    {
+      "os": "linux",
+      "arch": "amd64",
+      {{#addURLAndSha}}https://github.com/spinframework/spin-trigger-plugins/releases/download/{{TagName}}/trigger-cron-{{Version}}-linux-amd64.tar.gz{{/addURLAndSha}}
+    },
+    {
+      "os": "linux",
+      "arch": "aarch64",
+      {{#addURLAndSha}}https://github.com/spinframework/spin-trigger-plugins/releases/download/{{TagName}}/trigger-cron-{{Version}}-linux-aarch64.tar.gz{{/addURLAndSha}}
+    },
+    {
+      "os": "macos",
+      "arch": "amd64",
+      {{#addURLAndSha}}https://github.com/spinframework/spin-trigger-plugins/releases/download/{{TagName}}/trigger-cron-{{Version}}-macos-amd64.tar.gz{{/addURLAndSha}}
+    },
+    {
+      "os": "macos",
+      "arch": "aarch64",
+      {{#addURLAndSha}}https://github.com/spinframework/spin-trigger-plugins/releases/download/{{TagName}}/trigger-cron-{{Version}}-macos-aarch64.tar.gz{{/addURLAndSha}}
+    },
+    {
+      "os": "windows",
+      "arch": "amd64",
+      {{#addURLAndSha}}https://github.com/spinframework/spin-trigger-plugins/releases/download/{{TagName}}/trigger-cron-{{Version}}-windows-amd64.tar.gz{{/addURLAndSha}}
+    }
+  ]
+}

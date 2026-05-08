@@ -184,10 +184,32 @@ jobs:
           file_glob: true
           tag: ${{ env.RELEASE_TAG }}
           overwrite: true
-      - name: Upload manifest to GitHub release
+
+      # Canary builds: upload the un-shaed merged manifest produced above.
+      # For tag releases, the spin-plugin-releaser step below uploads a
+      # `<package>.json` with sha256s baked in, so we skip this step there
+      # to avoid an "asset already exists" conflict.
+      - name: Upload manifest to GitHub release (canary)
+        if: inputs.canary == true
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: crates/${{ inputs.crate }}/${{ inputs.package }}.json
           tag: ${{ env.RELEASE_TAG }}
           overwrite: true
+
+      # On tag pushes, render the per-trigger plugin manifest (with sha256s
+      # computed from the freshly-uploaded release tarballs), upload it as
+      # `<package>.json` plus a `checksums-<tag>.txt` asset, and ping the
+      # spin-plugin-releaser bot to open a PR against
+      # github.com/spinframework/spin-plugins. Skipped for canary builds —
+      # the action's "canary" code path tries to read package.version from
+      # Cargo.toml, which fails on this virtual workspace, and the bot
+      # ignores prereleases anyway.
+      - name: Open spin-plugins manifest PR
+        if: inputs.canary != true
+        uses: rajatjindal/spin-plugin-releaser@v1.0.17
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          template_file: crates/${{ inputs.crate }}/.spin-plugin.json.tmpl
+          upload_checksums: true
