@@ -21,6 +21,17 @@ examples/            # Example apps
 cargo build --workspace
 ```
 
+## Templates
+
+Templates can be installed via:
+
+```sh
+spin templates install --git https://github.com/spinframework/spin-trigger-plugins
+```
+
+> Note: If any of the trigger templates were installed from their previous locations,
+add an `--upgrade` to re-install from this repository.
+
 ## License
 
 This project is licensed under the Apache License, Version 2.0
