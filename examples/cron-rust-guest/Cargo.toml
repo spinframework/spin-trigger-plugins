@@ -10,6 +10,6 @@ crate-type = ["cdylib"]
 
 [dependencies]
 spin-sdk = "6"
-spin-cron-sdk = { path = "../sdk" }
+spin-cron-sdk = { path = "../../crates/trigger-cron/sdk" }
 
 [workspace]
