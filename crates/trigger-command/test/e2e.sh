@@ -5,6 +5,9 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+APP_DIR="${SCRIPT_DIR}/../../../examples/command-rust-guest-hello"
+
 # Create random temporary directory for logs
 LOG_DIR=$(mktemp -d)
 
@@ -21,7 +24,7 @@ echo -e "\n${GREEN}Building and installing the command trigger plugin...${NC}"
 cargo build --release
 spin pluginify --install
 
-spin build --up --from examples/hello-world --quiet --log-dir "$LOG_DIR"
+spin build --up --from "${APP_DIR}" --quiet --log-dir "$LOG_DIR"
 
 # Assert that the contents of stdout is `Hello, world!`
 OUTPUT=$(cat "$LOG_DIR/hello-world_stdout.txt")
