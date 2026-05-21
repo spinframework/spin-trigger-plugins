@@ -11,7 +11,7 @@ pip3 install -r requirements.txt
 To generate bindings to use with intellisense
 
 ```bash
-componentize-py -d ../cron.wit -w spin:cron/spin-cron@3.0.0 bindings bindings
+componentize-py -d ../../crates/trigger-cron/cron.wit -w spin:cron/spin-cron@3.0.0 bindings bindings
 ```
 
 
