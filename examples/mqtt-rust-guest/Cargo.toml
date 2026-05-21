@@ -11,7 +11,7 @@ crate-type = [ "cdylib" ]
 [dependencies]
 anyhow = "1"
 chrono = "*"
-spin-mqtt-sdk = { path = "../../sdk" }
+spin-mqtt-sdk = { path = "../../crates/trigger-mqtt/sdk" }
 
 
 [workspace]
