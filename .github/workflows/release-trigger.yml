@@ -142,31 +142,28 @@ jobs:
             > ../${{ inputs.package }}.json
           cat ../${{ inputs.package }}.json
 
-      # Canary: delete and recreate the per-trigger '<trigger>-canary' tag and
-      # release as a prerelease, then upload the freshly-built artifacts.
-      - name: Delete previous canary tag/release
+      # Canary: delete release in anticipation of recreating with new artifacts below
+      - name: delete GitHub release (canary)
         if: inputs.canary == true
-        uses: dev-drprasad/delete-tag-and-release@v0.2.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ env.RELEASE_TAG }}
-      - name: Recreate canary tag and prerelease
-        if: inputs.canary == true
-        uses: ncipollo/release-action@v1.10.0
-        with:
-          tag: ${{ env.RELEASE_TAG }}
-          allowUpdates: true
-          prerelease: true
+          GH_TOKEN: ${{ github.token }}
+        run: gh release delete ${{ env.RELEASE_TAG }} --cleanup-tag
 
-      - name: Upload tarballs to GitHub release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: crates/${{ inputs.crate }}/artifacts/*/*.tar.gz
-          file_glob: true
-          tag: ${{ env.RELEASE_TAG }}
-          overwrite: true
+      # If the tag is anything other than <trigger>-vX.X.X, consider as a prerelease
+      - name: check if pre-release
+        shell: bash
+        run: |
+          if [[ ! "${{ github.ref_name }}" =~ ^[a-z]+-v[0-9]+.[0-9]+.[0-9]+$ ]]
+          then
+            echo "PRERELEASE=--prerelease" >> "$GITHUB_ENV"
+          fi
+
+      - name: create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create ${{ env.RELEASE_TAG }} crates/${{ inputs.crate }}/artifacts/*/*.tar.gz \
+            --title ${{ env.RELEASE_TAG }} ${{ env.PRERELEASE }}
 
       # Canary builds: upload the un-shaed merged manifest produced above.
       # For tag releases, the spin-plugin-releaser step below uploads a
