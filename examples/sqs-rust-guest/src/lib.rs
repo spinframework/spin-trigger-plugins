@@ -1,6 +1,6 @@
 wit_bindgen::generate!({
     world: "spin-sqs",
-    path: "../sqs3.wit",
+    path: "../../crates/trigger-sqs/sqs3.wit",
 });
 
 use spin::sqs::sqs_types as sqs;
