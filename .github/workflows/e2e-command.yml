@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: trigger-command E2E Tests
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'crates/trigger-command/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/e2e-command.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'crates/trigger-command/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/e2e-command.yml'
+
+jobs:
+  e2e-test:
+    name: E2E Test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: crates/trigger-command
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: 1.93
+          targets: wasm32-wasip2
+
+      - name: Install Spin
+        # TODO: bump to v1 once available; see https://github.com/spinframework/actions/issues/20
+        uses: spinframework/actions/spin/setup@06319d3612303cb558fabe9b13cc0d7256d0aeb9
+        with:
+          version: v4.0.0
+          plugins: pluginify
+
+      - name: Run E2E tests
+        run: ./test/e2e.sh

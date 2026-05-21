@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: trigger-mqtt E2E Tests
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'crates/trigger-mqtt/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/e2e-mqtt.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'crates/trigger-mqtt/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/e2e-mqtt.yml'
+
+jobs:
+  e2e-test:
+    name: E2E test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: crates/trigger-mqtt
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install rust target for example app
+        run: rustup target add wasm32-wasip2
+
+      - name: Install Spin
+        # TODO: bump to v1 once available; see https://github.com/spinframework/actions/issues/20
+        uses: spinframework/actions/spin/setup@06319d3612303cb558fabe9b13cc0d7256d0aeb9
+        with:
+          version: v4.0.0
+          plugins: pluginify
+
+      - name: Install mqttx-cli
+        run: |
+          curl -LO https://www.emqx.com/en/downloads/MQTTX/v1.13.0/mqttx-cli-linux-x64
+          sudo install ./mqttx-cli-linux-x64 /usr/local/bin/mqttx
+
+      - name: Run integration test
+        run: make test

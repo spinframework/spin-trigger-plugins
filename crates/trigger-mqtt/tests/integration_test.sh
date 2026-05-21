@@ -4,6 +4,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+APP_DIR="${PROJECT_DIR}/../../examples/mqtt-rust-guest"
 MQTT_CONTAINER_NAME="emqx-test"
 MQTT_HOST="localhost"
 MQTT_PORT="1883"
@@ -132,8 +133,8 @@ start_spin_app() {
     SPIN_LOGS_STDOUT="$SPIN_LOG_DIR/mqtt-c01_stdout.txt"
     
     # Build and start the example app in background, capturing output
-    spin build --from examples/mqtt-app/spin.toml
-    spin up --from examples/mqtt-app/spin.toml --log-dir "$SPIN_LOG_DIR" &
+    spin build --from ${APP_DIR}/spin.toml
+    spin up --from ${APP_DIR}/spin.toml --log-dir "$SPIN_LOG_DIR" &
     SPIN_PID=$!
     
     log "Waiting for Spin application to start..."

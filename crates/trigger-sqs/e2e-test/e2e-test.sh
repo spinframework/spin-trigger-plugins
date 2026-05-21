@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -10,13 +12,14 @@ NC='\033[0m' # No Color
 # Configuration
 SQS_ENDPOINT="${SQS_ENDPOINT:-http://localhost:9324}"
 TEST_QUEUE_NAME="${TEST_QUEUE_NAME:-test-queue}"
-SPIN_OUTPUT_LOG="guest/.spin/logs/localtest_stdout.txt"
+APP_DIR="${SCRIPT_DIR}/../../../examples/sqs-rust-guest"
+SPIN_OUTPUT_LOG="${APP_DIR}/.spin/logs/localtest_stdout.txt"
 SPIN_PID=""
 MESSAGE="test-value"
 MESSAGE_BODY="Test message from e2e test"
 ATTRIBUTE_NAME="glonk"
 
-rm -rf guest/.spin
+rm -rf ${APP_DIR}/.spin
 
 export AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-us-east-1}"
 
@@ -71,7 +74,7 @@ echo -e "${GREEN}✓ AWS CLI is available${NC}"
 # Check if spin is available
 if ! command -v spin &> /dev/null; then
     echo -e "${RED}Error: Spin is not installed${NC}"
-    echo "Please install Spin: https://developer.fermyon.com/spin/install"
+    echo "Please install Spin: https://spinframework.dev/install"
     exit 1
 fi
 echo -e "${GREEN}✓ Spin is available${NC}"
@@ -98,26 +101,26 @@ fi
 
 echo -e "${GREEN}✓ Queue created: $QUEUE_URL${NC}"
 
-# Update guest/spin.toml with the queue URL
-echo -e "\n${GREEN}Updating guest/spin.toml with queue URL...${NC}"
+# Update ${APP_DIR}/spin.toml with the queue URL
+echo -e "\n${GREEN}Updating ${APP_DIR}/spin.toml with queue URL...${NC}"
 
 # Backup original spin.toml
-cp guest/spin.toml guest/spin.toml.backup
+cp ${APP_DIR}/spin.toml ${APP_DIR}/spin.toml.backup
 
 # Replace queue_url
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS sed syntax
-    sed -i '' "s|queue_url = \".*\"|queue_url = \"$QUEUE_URL\"|g" guest/spin.toml
+    sed -i '' "s|queue_url = \".*\"|queue_url = \"$QUEUE_URL\"|g" ${APP_DIR}/spin.toml
 else
     # Linux sed syntax
-    sed -i "s|queue_url = \".*\"|queue_url = \"$QUEUE_URL\"|g" guest/spin.toml
+    sed -i "s|queue_url = \".*\"|queue_url = \"$QUEUE_URL\"|g" ${APP_DIR}/spin.toml
 fi
 
 echo -e "${GREEN}✓ Updated spin.toml${NC}"
 
 # Build the guest application
 echo -e "\n${GREEN}Building guest application...${NC}"
-spin build  --from guest
+spin build --from ${APP_DIR}
 echo -e "${GREEN}✓ Guest application built${NC}"
 
 # Start Spin application
@@ -125,7 +128,7 @@ echo -e "\n${GREEN}Starting Spin application...${NC}"
 AWS_DEFAULT_REGION="$AWS_DEFAULT_REGION" \
 AWS_ENDPOINT_URL="$SQS_ENDPOINT" \
 AWS_ENDPOINT_URL_SQS="$SQS_ENDPOINT" \
-spin up --from guest &
+spin up --from ${APP_DIR} &
 SPIN_PID=$!
 
 echo "Spin started with PID: $SPIN_PID"
@@ -157,7 +160,7 @@ echo "Waiting for message to be processed..."
 sleep 15
 
 # Restore original spin.toml
-mv guest/spin.toml.backup guest/spin.toml
+mv ${APP_DIR}/spin.toml.backup ${APP_DIR}/spin.toml
 
 # Verify output
 echo -e "\n${GREEN}Verifying output...${NC}"
