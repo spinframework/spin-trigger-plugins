@@ -18,11 +18,11 @@ spin plugin install --url https://github.com/spinframework/spin-trigger-plugins/
 
 [Note: release management for multiple versions of this plugin/trigger will be added soon]
 
-If you want to learn more about Spin's plugin model, read [here](https://www.fermyon.com/blog/managing-spin-templates-and-plugins).
+If you want to learn more about Spin's plugin model, read [here](https://spinframework.dev/managing-plugins).
 
 ### Install Template
 
-[Spin templates](https://www.fermyon.com/blog/managing-spin-templates-and-plugins) allow a Spin developer to quickly create the skeleton of an application or component, ready for the application logic to be filled in. As part of this repo, a new template is created to help build applications which make use of MQTT as a communication protocol/trigger.
+[Spin templates](https://spinframework.dev/managing-templates) allow a Spin developer to quickly create the skeleton of an application or component, ready for the application logic to be filled in. As part of this repo, a new template is created to help build applications which make use of MQTT as a communication protocol/trigger.
 
 Install MQTT Template:
 

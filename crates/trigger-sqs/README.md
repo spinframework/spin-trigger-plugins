@@ -32,8 +32,8 @@ The end-to-end test runs a local ElasticMQ container, builds and installs the pl
 
 ### Prerequisites
 
-- [Rust](https://rustup.rs/) (1.90 or later)
-- [Spin](https://developer.fermyon.com/spin/install) (v3.3.0 or later)
+- [Rust](https://rustup.rs/) (1.91 or later)
+- [Spin](https://spinframework.dev/install) (v3.3.0 or later)
 - [AWS CLI](https://aws.amazon.com/cli/)
 - [Docker](https://docs.docker.com/get-docker/) (for running ElasticMQ in a container)
 - `make` utility
