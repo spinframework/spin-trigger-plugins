@@ -29,8 +29,8 @@ tokio-scoped = "0.2.0"
 tokio-cron-scheduler = "0.13"
 tracing = { version = "0.1.41", features = ["log"] }
 tracing-subscriber = { version = "0.3.7", features = ["env-filter"] }
-wasmtime = "43"
-wasmtime-wasi = { version = "43", features = ["p2", "p3"] }
+wasmtime = "44"
+wasmtime-wasi = { version = "44", features = ["p2", "p3"] }
 wit-bindgen = "0.54.0"
 openssl = "0.10"
 rustls = { version = "0.23", default-features = false, features = ["ring", "std"] }
@@ -39,12 +39,12 @@ aws-config = { version = "1.1.7", features = ["behavior-version-latest", "rt-tok
 aws-sdk-sqs = { version = "1.93.0", features = ["rustls"], default-features = false }
 
 # Spin (pinned to a single revision across all triggers).
-spin-app = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
-spin-core = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
-spin-expressions = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
-spin-factor-variables = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
-spin-factor-wasi = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
-spin-factors = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
-spin-runtime-factors = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
-spin-telemetry = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
-spin-trigger = { git = "https://github.com/spinframework/spin", rev = "5f3aa19c50d1609592f7ea2f6362209a04da52ac", default-features = false }
+spin-app = { git = "https://github.com/spinframework/spin", tag = "v4.0.1", default-features = false }
+spin-core = { git = "https://github.com/spinframework/spin", tag = "v4.0.1", default-features = false }
+spin-expressions = { git = "https://github.com/spinframework/spin", tag = "v4.0.1", default-features = false }
+spin-factor-variables = { git = "https://github.com/spinframework/spin", tag = "v4.0.1", default-features = false }
+spin-factor-wasi = { git = "https://github.com/spinframework/spin", tag = "v4.0.1", default-features = false }
+spin-factors = { git = "https://github.com/spinframework/spin", tag = "v4.0.1", default-features = false }
+spin-runtime-factors = { git = "https://github.com/spinframework/spin", tag = "v4.0.1", default-features = false }
+spin-telemetry = { git = "https://github.com/spinframework/spin", tag = "v4.0.1", default-features = false }
+spin-trigger = { git = "https://github.com/spinframework/spin", tag = "v4.0.1", default-features = false }

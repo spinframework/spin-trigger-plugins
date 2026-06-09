@@ -918,15 +918,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c4512299f36f043ab09a583e57bceb5a5aab7a73db1805848e8fef3c9e8c78b3"
 
 [[package]]
-name = "bitmaps"
-version = "2.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "031043d04099746d8db04daf1fa424b2bc8bd69d92b25962dcde24da39ab64a2"
-dependencies = [
- "typenum",
-]
-
-[[package]]
 name = "bitvec"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1378,27 +1369,27 @@ dependencies = [
 
 [[package]]
 name = "cranelift-assembler-x64"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "adc822414b18d1f5b1b33ce1441534e311e62fef86ebb5b9d382af857d0272c9"
+checksum = "008f1a8d1da5074ad858f398775a6d1989031892e46927df5ed18d3be1ed8717"
 dependencies = [
  "cranelift-assembler-x64-meta",
 ]
 
 [[package]]
 name = "cranelift-assembler-x64-meta"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8c646808b06f4532478d8d6057d74f15c3322f10d995d9486e7dcea405bf521a"
+checksum = "9fd76237df1f4e26edb5ad7971d20280ed1e193331fd257f1b4e4dfefd88dda2"
 dependencies = [
  "cranelift-srcgen",
 ]
 
 [[package]]
 name = "cranelift-bforest"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7b5996f01a686b2349cdb379083ec5ad3e8cb8767fb2d495d3a4f2ee4163a18d"
+checksum = "380f0bc43e535df6855bbee649efb00bde39c3f33434c47c8e10ac836d21bf47"
 dependencies = [
  "cranelift-entity",
  "wasmtime-internal-core",
@@ -1406,9 +1397,9 @@ dependencies = [
 
 [[package]]
 name = "cranelift-bitset"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "523fea83273f6a985520f57788809a4de2165794d9ab00fb1254fceb4f5aa00c"
+checksum = "4811e3e4502de04257e90c0a93225b56d9b85e0f9ad10b81446b415511009610"
 dependencies = [
  "serde",
  "serde_derive",
@@ -1417,9 +1408,9 @@ dependencies = [
 
 [[package]]
 name = "cranelift-codegen"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d73d1e372730b5f64ed1a2bd9f01fe4686c8ec14a28034e3084e530c8d951878"
+checksum = "82ffadb34d497f3e76fb3b4baf764c24ba8a51512976a1b77f78bdbf8f4aa687"
 dependencies = [
  "bumpalo",
  "cranelift-assembler-x64",
@@ -1445,9 +1436,9 @@ dependencies = [
 
 [[package]]
 name = "cranelift-codegen-meta"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b0319c18165e93dc1ebf78946a8da0b1c341c95b4a39729a69574671639bdb5f"
+checksum = "be4f6992eb6faf086ddc7deaaa5f279abfe7f5fd5ae5709bd38253450fc7b945"
 dependencies = [
  "cranelift-assembler-x64-meta",
  "cranelift-codegen-shared",
@@ -1458,24 +1449,24 @@ dependencies = [
 
 [[package]]
 name = "cranelift-codegen-shared"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9195cd8aeecb55e401aa96b2eaa55921636e8246c127ed7908f7ef7e0d40f270"
+checksum = "70e1b2aad7d055925a4ea9cdbfa9d1d987f9dfc8ad6b708be28f901ac620a298"
 
 [[package]]
 name = "cranelift-control"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8976c2154b74136322befc74222ab5c7249edd7e2604f8cbef2b94975541ffb9"
+checksum = "89a355348325e0a63b65c00def3871597b9fcc79d25456397010d16d872b3772"
 dependencies = [
  "arbitrary",
 ]
 
 [[package]]
 name = "cranelift-entity"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6038b3147c7982f4951150d5f96c7c06c1e7214b99d4b4a98607aadf8ded89d1"
+checksum = "43f4847d93ce2c80d2bff929aa1004dfb3ce2cf5d881f6ced54b8d654d967ba3"
 dependencies = [
  "cranelift-bitset",
  "serde",
@@ -1485,9 +1476,9 @@ dependencies = [
 
 [[package]]
 name = "cranelift-frontend"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4cbd294abe236e23cc3d907b0936226b6a8342db7636daa9c7c72be1e323420e"
+checksum = "ba24e5fe5242cc445e7892ef0a51a4351cf716e3a04ac7a3a05820d056c39818"
 dependencies = [
  "cranelift-codegen",
  "log",
@@ -1497,15 +1488,15 @@ dependencies = [
 
 [[package]]
 name = "cranelift-isle"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b5a90b6ed3aba84189352a87badeb93b2126d3724225a42dc67fdce53d1b139c"
+checksum = "89bc2035de85c4f04ba7bd57eb5bd3a8b775235bf28852dbf87105115cb8919a"
 
 [[package]]
 name = "cranelift-native"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c3ec0cc1a54e22925eacf4fc3dc815f907734d3b377899d19d52bec04863e853"
+checksum = "5ea6630c16921ab087792750f239d0c0173411e80179ca7c0ce0710ce9e7646a"
 dependencies = [
  "cranelift-codegen",
  "libc",
@@ -1514,9 +1505,9 @@ dependencies = [
 
 [[package]]
 name = "cranelift-srcgen"
-version = "0.130.2"
+version = "0.131.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "948865622f87f30907bb46fbb081b235ae63c1896a99a83c26a003305c1fa82d"
+checksum = "faa4bbad54fc28cc0da1f9a5d7f7f826ec8cafda3d503b401b2daaaa93c63ef0"
 
 [[package]]
 name = "crc32fast"
@@ -1976,6 +1967,12 @@ name = "fixedbitset"
 version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0ce7134b9999ecaf8bcd65542e436736ef32ddca1b3e06094cb6ec5755203b80"
+
+[[package]]
+name = "fixedbitset"
+version = "0.5.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1d674e81391d1e1ab681a28d99df07927c6d4aa5b027d7da16ba32d1d21ecd99"
 
 [[package]]
 name = "flate2"
@@ -2583,6 +2580,7 @@ dependencies = [
  "hyper 1.9.0",
  "hyper-util",
  "rustls 0.23.40",
+ "rustls-native-certs 0.8.3",
  "tokio",
  "tokio-rustls 0.26.4",
  "tower-service",
@@ -2780,20 +2778,6 @@ checksum = "cb68373c0d6620ef8105e855e7745e18b0d00d3bdb07fb532e434244cdb9a714"
 dependencies = [
  "icu_normalizer",
  "icu_properties",
-]
-
-[[package]]
-name = "im-rc"
-version = "15.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "af1955a75fa080c677d3972822ec4bad316169ab1cfc6c257a942c2265dbe5fe"
-dependencies = [
- "bitmaps",
- "rand_core 0.6.4",
- "rand_xoshiro",
- "sized-chunks",
- "typenum",
- "version_check",
 ]
 
 [[package]]
@@ -3474,12 +3458,12 @@ dependencies = [
 
 [[package]]
 name = "object"
-version = "0.38.1"
+version = "0.39.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "271638cd5fa9cca89c4c304675ca658efc4e64a66c716b7cfe1afb4b9611dbbc"
+checksum = "2e5a6c098c7a3b6547378093f5cc30bc54fd361ce711e05293a5cc589562739b"
 dependencies = [
  "crc32fast",
- "hashbrown 0.16.1",
+ "hashbrown 0.17.0",
  "indexmap 2.14.0",
  "memchr",
 ]
@@ -3628,6 +3612,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "opentelemetry-semantic-conventions"
+version = "0.28.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2fb3a2f78c2d55362cd6c313b8abedfbc0142ab3c2676822068fd2ab7d51f9b7"
+
+[[package]]
 name = "opentelemetry_sdk"
 version = "0.28.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3743,7 +3733,7 @@ version = "0.6.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b4c5cc86750666a3ed20bdaf5ca2a0344f9c67674cae0515bec2da16fbaa47db"
 dependencies = [
- "fixedbitset",
+ "fixedbitset 0.4.2",
  "indexmap 2.14.0",
 ]
 
@@ -4061,9 +4051,9 @@ dependencies = [
 
 [[package]]
 name = "pulley-interpreter"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7ec12fe19a9588315a49fe5704502a9c02d6a198303314b0c7c86123b06d29e5"
+checksum = "dff0ead8b4616f81b3d3efd41ce41bcf9ea364a5d8df8be8a8a1f98b50104349"
 dependencies = [
  "cranelift-bitset",
  "log",
@@ -4073,9 +4063,9 @@ dependencies = [
 
 [[package]]
 name = "pulley-macros"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "36f7d5ef31ebf1b46cd7e722ffef934e670d7e462f49aa01cde07b9b76dca580"
+checksum = "f4389e5820b1b39810ac12a27aa665320cab3caa51913a79637c06f284cfe223"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -4282,15 +4272,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "rand_xoshiro"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6f97cdb2a36ed4183de61b2f824cc45c9f1037f28afe0a322e9fff4c108b5aaa"
-dependencies = [
- "rand_core 0.6.4",
-]
-
-[[package]]
 name = "rayon"
 version = "1.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4366,6 +4347,26 @@ dependencies = [
  "getrandom 0.2.17",
  "libredox",
  "thiserror 2.0.18",
+]
+
+[[package]]
+name = "ref-cast"
+version = "1.0.25"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f354300ae66f76f1c85c5f84693f0ce81d747e2c3f21a45fef496d89c960bf7d"
+dependencies = [
+ "ref-cast-impl",
+]
+
+[[package]]
+name = "ref-cast-impl"
+version = "1.0.25"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b7186006dcb21920990093f30e3dea63b7d6e977bf1256be20c3563a5db070da"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.117",
 ]
 
 [[package]]
@@ -4454,6 +4455,7 @@ dependencies = [
  "pin-project-lite",
  "quinn",
  "rustls 0.23.40",
+ "rustls-native-certs 0.8.3",
  "rustls-pki-types",
  "serde",
  "serde_json",
@@ -4519,20 +4521,22 @@ dependencies = [
 
 [[package]]
 name = "rumqttc"
-version = "0.24.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e1568e15fab2d546f940ed3a21f48bbbd1c494c90c99c4481339364a497f94a9"
+version = "0.25.1"
+source = "git+https://github.com/spinframework/rumqtt?rev=65b7b39a70b12d1781acb61cc07f1f1b680e7643#65b7b39a70b12d1781acb61cc07f1f1b680e7643"
 dependencies = [
  "bytes",
+ "fixedbitset 0.5.7",
  "flume",
  "futures-util",
  "log",
- "rustls-native-certs 0.7.3",
+ "rustls-native-certs 0.8.3",
  "rustls-pemfile",
- "rustls-webpki 0.102.8",
- "thiserror 1.0.69",
+ "rustls-webpki 0.103.13",
+ "thiserror 2.0.18",
  "tokio",
- "tokio-rustls 0.25.0",
+ "tokio-rustls 0.26.4",
+ "tokio-stream",
+ "tokio-util",
  "url",
 ]
 
@@ -4851,12 +4855,13 @@ dependencies = [
 
 [[package]]
 name = "schemars"
-version = "0.8.22"
+version = "1.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3fbf2ae1b8bc8e02df939598064d22402220cd5bbcca1c76f7d6a310974d5615"
+checksum = "a2b42f36aa1cd011945615b92222f6bf73c599a102a300334cd7f8dbeec726cc"
 dependencies = [
  "dyn-clone",
  "indexmap 2.14.0",
+ "ref-cast",
  "schemars_derive",
  "semver",
  "serde",
@@ -4865,9 +4870,9 @@ dependencies = [
 
 [[package]]
 name = "schemars_derive"
-version = "0.8.22"
+version = "1.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "32e265784ad618884abaea0600a9adf15393368d840e0222d101a072f3f7534d"
+checksum = "7d115b50f4aaeea07e79c1912f645c7513d81715d0420f8bc77a18c6260b307f"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -5050,19 +5055,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "serde_yaml"
-version = "0.9.34+deprecated"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6a8b1a1a2ebf674015cc02edccce75287f1a0130d394307b36743c2f5d504b47"
-dependencies = [
- "indexmap 2.14.0",
- "itoa",
- "ryu",
- "serde",
- "unsafe-libyaml",
-]
-
-[[package]]
 name = "sha1"
 version = "0.10.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5145,16 +5137,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ee5873ec9cce0195efcb7a4e9507a04cd49aec9c83d0389df45b1ef7ba2e649"
 
 [[package]]
-name = "sized-chunks"
-version = "0.6.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "16d69225bde7a69b235da73377861095455d298f2b970996eec25ddbb42b3d1e"
-dependencies = [
- "bitmaps",
- "typenum",
-]
-
-[[package]]
 name = "slab"
 version = "0.4.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5209,8 +5191,8 @@ dependencies = [
 
 [[package]]
 name = "spin-app"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "serde",
@@ -5220,8 +5202,8 @@ dependencies = [
 
 [[package]]
 name = "spin-capabilities"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "wac-graph",
@@ -5231,8 +5213,8 @@ dependencies = [
 
 [[package]]
 name = "spin-common"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "clap",
@@ -5245,8 +5227,8 @@ dependencies = [
 
 [[package]]
 name = "spin-componentize"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "tracing",
@@ -5259,8 +5241,8 @@ dependencies = [
 
 [[package]]
 name = "spin-compose"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5278,8 +5260,8 @@ dependencies = [
 
 [[package]]
 name = "spin-core"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5306,8 +5288,8 @@ dependencies = [
 
 [[package]]
 name = "spin-expressions"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5318,8 +5300,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-key-value"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "serde",
@@ -5339,8 +5321,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-llm"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5359,8 +5341,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-otel"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "indexmap 2.14.0",
@@ -5378,8 +5360,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-outbound-http"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "bytes",
@@ -5389,6 +5371,7 @@ dependencies = [
  "http-body-util",
  "hyper 1.9.0",
  "hyper-util",
+ "opentelemetry-semantic-conventions",
  "pin-project-lite",
  "reqwest",
  "rustls 0.23.40",
@@ -5410,8 +5393,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-outbound-mqtt"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "rumqttc",
@@ -5427,8 +5410,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-outbound-mysql"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "futures",
@@ -5438,6 +5421,8 @@ dependencies = [
  "spin-factor-outbound-networking",
  "spin-factors",
  "spin-resource-table",
+ "spin-telemetry",
+ "spin-wasi-async",
  "spin-world",
  "tokio",
  "tracing",
@@ -5446,13 +5431,14 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-outbound-networking"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "futures-util",
  "http 1.4.0",
  "ip_network",
+ "opentelemetry-semantic-conventions",
  "rustls 0.23.40",
  "rustls-pki-types",
  "rustls-platform-verifier",
@@ -5466,13 +5452,13 @@ dependencies = [
  "spin-serde",
  "tracing",
  "url",
- "webpki-roots 0.26.11",
+ "webpki-root-certs",
 ]
 
 [[package]]
 name = "spin-factor-outbound-pg"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "bytes",
@@ -5492,6 +5478,7 @@ dependencies = [
  "spin-factors",
  "spin-locked-app",
  "spin-resource-table",
+ "spin-telemetry",
  "spin-wasi-async",
  "spin-world",
  "tokio",
@@ -5504,8 +5491,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-outbound-redis"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "redis",
@@ -5521,8 +5508,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-sqlite"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "async-trait",
  "spin-core",
@@ -5538,8 +5525,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-variables"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "spin-core",
  "spin-expressions",
@@ -5552,8 +5539,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-wasi"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "async-trait",
  "bytes",
@@ -5566,8 +5553,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factors"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "serde",
@@ -5580,8 +5567,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factors-derive"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -5590,8 +5577,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factors-executor"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "spin-app",
@@ -5604,8 +5591,8 @@ dependencies = [
 
 [[package]]
 name = "spin-key-value-aws"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "async-once-cell",
@@ -5620,8 +5607,8 @@ dependencies = [
 
 [[package]]
 name = "spin-key-value-azure"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5637,8 +5624,8 @@ dependencies = [
 
 [[package]]
 name = "spin-key-value-redis"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "redis",
@@ -5651,8 +5638,8 @@ dependencies = [
 
 [[package]]
 name = "spin-key-value-spin"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "rusqlite",
@@ -5666,8 +5653,8 @@ dependencies = [
 
 [[package]]
 name = "spin-llm-remote-http"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "futures",
@@ -5681,8 +5668,8 @@ dependencies = [
 
 [[package]]
 name = "spin-locked-app"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5695,8 +5682,8 @@ dependencies = [
 
 [[package]]
 name = "spin-manifest"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "indexmap 2.14.0",
@@ -5731,8 +5718,8 @@ dependencies = [
 
 [[package]]
 name = "spin-outbound-networking-config"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "futures-util",
@@ -5747,13 +5734,13 @@ dependencies = [
 
 [[package]]
 name = "spin-resource-table"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 
 [[package]]
 name = "spin-runtime-config"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "serde",
@@ -5787,8 +5774,8 @@ dependencies = [
 
 [[package]]
 name = "spin-runtime-factors"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "clap",
@@ -5816,8 +5803,8 @@ dependencies = [
 
 [[package]]
 name = "spin-serde"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "base64 0.22.1",
@@ -5829,8 +5816,8 @@ dependencies = [
 
 [[package]]
 name = "spin-sqlite"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "serde",
  "spin-factor-sqlite",
@@ -5842,8 +5829,8 @@ dependencies = [
 
 [[package]]
 name = "spin-sqlite-inproc"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5857,8 +5844,8 @@ dependencies = [
 
 [[package]]
 name = "spin-sqlite-libsql"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5870,8 +5857,8 @@ dependencies = [
 
 [[package]]
 name = "spin-telemetry"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "http 0.2.12",
@@ -5880,6 +5867,7 @@ dependencies = [
  "opentelemetry-appender-tracing",
  "opentelemetry-otlp",
  "opentelemetry_sdk",
+ "reqwest",
  "terminal",
  "tracing",
  "tracing-opentelemetry",
@@ -5888,8 +5876,8 @@ dependencies = [
 
 [[package]]
 name = "spin-trigger"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "clap",
@@ -5917,8 +5905,8 @@ dependencies = [
 
 [[package]]
 name = "spin-variables-azure"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "azure_core 0.20.0",
  "azure_identity 0.20.0",
@@ -5932,8 +5920,8 @@ dependencies = [
 
 [[package]]
 name = "spin-variables-env"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "dotenvy",
  "serde",
@@ -5946,8 +5934,8 @@ dependencies = [
 
 [[package]]
 name = "spin-variables-static"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "serde",
  "serde_json",
@@ -5959,8 +5947,8 @@ dependencies = [
 
 [[package]]
 name = "spin-variables-vault"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "serde",
  "spin-expressions",
@@ -5971,8 +5959,8 @@ dependencies = [
 
 [[package]]
 name = "spin-wasi-async"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "spin-core",
@@ -5981,8 +5969,8 @@ dependencies = [
 
 [[package]]
 name = "spin-world"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -6172,8 +6160,8 @@ dependencies = [
 
 [[package]]
 name = "terminal"
-version = "4.0.0"
-source = "git+https://github.com/spinframework/spin?rev=5f3aa19c50d1609592f7ea2f6362209a04da52ac#5f3aa19c50d1609592f7ea2f6362209a04da52ac"
+version = "4.0.1"
+source = "git+https://github.com/spinframework/spin?tag=v4.0.1#5b09e1a93ef81a476ac866e62c954f10234d7ff8"
 dependencies = [
  "termcolor",
 ]
@@ -6900,12 +6888,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ebc1c04c71510c7f702b52b7c350734c9ff1295c464a03335b00bb84fc54f853"
 
 [[package]]
-name = "unsafe-libyaml"
-version = "0.2.11"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "673aac59facbab8a9007c7f6108d11f63b603f7cabff99fabf650fea5c32b861"
-
-[[package]]
 name = "untrusted"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -7161,22 +7143,18 @@ dependencies = [
 
 [[package]]
 name = "wasm-compose"
-version = "0.245.1"
+version = "0.246.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5fd23d12cc95c451c1306db5bc63075fbebb612bb70c53b4237b1ce5bc178343"
+checksum = "f05a2b3bad87cc1ce45b63425ec09a854cc4cb369231c9fed1fee31538103efb"
 dependencies = [
  "anyhow",
  "heck",
- "im-rc",
  "indexmap 2.14.0",
  "log",
  "petgraph",
- "serde",
- "serde_derive",
- "serde_yaml",
  "smallvec",
- "wasm-encoder 0.245.1",
- "wasmparser 0.245.1",
+ "wasm-encoder 0.246.2",
+ "wasmparser 0.246.2",
  "wat",
 ]
 
@@ -7198,6 +7176,16 @@ checksum = "3f9dca005e69bf015e45577e415b9af8c67e8ee3c0e38b5b0add5aa92581ed5c"
 dependencies = [
  "leb128fmt",
  "wasmparser 0.245.1",
+]
+
+[[package]]
+name = "wasm-encoder"
+version = "0.246.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "61fb705ce81adde29d2a8e99d87995e39a6e927358c91398f374474746070ef7"
+dependencies = [
+ "leb128fmt",
+ "wasmparser 0.246.2",
 ]
 
 [[package]]
@@ -7315,6 +7303,18 @@ dependencies = [
  "hashbrown 0.16.1",
  "indexmap 2.14.0",
  "semver",
+]
+
+[[package]]
+name = "wasmparser"
+version = "0.246.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "71cde4757396defafd25417cfb36aa3161027d06d865b0c24baaae229aac005d"
+dependencies = [
+ "bitflags",
+ "hashbrown 0.16.1",
+ "indexmap 2.14.0",
+ "semver",
  "serde",
 ]
 
@@ -7344,20 +7344,20 @@ dependencies = [
 
 [[package]]
 name = "wasmprinter"
-version = "0.245.1"
+version = "0.246.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5f41517a3716fbb8ccf46daa9c1325f760fcbff5168e75c7392288e410b91ac8"
+checksum = "6e41f7493ba994b8a779430a4c25ff550fd5a40d291693af43a6ef48688f00e3"
 dependencies = [
  "anyhow",
  "termcolor",
- "wasmparser 0.245.1",
+ "wasmparser 0.246.2",
 ]
 
 [[package]]
 name = "wasmtime"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "efb1ed5899dde98357cfdcf647a4614498798719793898245b4b34e663addabf"
+checksum = "af4eccc0728f061979efa8ff4c962cff7041fead4baadb74973f01b9c47158a4"
 dependencies = [
  "addr2line",
  "async-trait",
@@ -7389,8 +7389,8 @@ dependencies = [
  "target-lexicon",
  "tempfile",
  "wasm-compose",
- "wasm-encoder 0.245.1",
- "wasmparser 0.245.1",
+ "wasm-encoder 0.246.2",
+ "wasmparser 0.246.2",
  "wasmtime-environ",
  "wasmtime-internal-cache",
  "wasmtime-internal-component-macro",
@@ -7409,9 +7409,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-environ"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4172382dcc785c31d0e862c6780a18f5dd437914d22c4691351f965ef751c821"
+checksum = "7e84dbe3208c1336a41546beb75927b3b37e2e4fce06653d214b407136fbe295"
 dependencies = [
  "anyhow",
  "cpp_demangle",
@@ -7431,8 +7431,8 @@ dependencies = [
  "sha2 0.10.9",
  "smallvec",
  "target-lexicon",
- "wasm-encoder 0.245.1",
- "wasmparser 0.245.1",
+ "wasm-encoder 0.246.2",
+ "wasmparser 0.246.2",
  "wasmprinter",
  "wasmtime-internal-component-util",
  "wasmtime-internal-core",
@@ -7440,9 +7440,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-internal-cache"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4ed398988226d7aa0505ac6bb576e09532ad722d702ec4e66365d78ed695c95f"
+checksum = "910b8dcadc0888344b2dea5a087c836b58156d4f455c52b6dac0bdc776a9d029"
 dependencies = [
  "base64 0.22.1",
  "directories-next",
@@ -7460,9 +7460,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-internal-component-macro"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ae5ec9fff073ff13b81732d56a9515d761c245750bcda09093827f84130ebc25"
+checksum = "c223bd503db76df8d74d1fcca39e734d25f7a0c1dcaf1509b67f3855d1b0f803"
 dependencies = [
  "anyhow",
  "proc-macro2",
@@ -7470,20 +7470,20 @@ dependencies = [
  "syn 2.0.117",
  "wasmtime-internal-component-util",
  "wasmtime-internal-wit-bindgen",
- "wit-parser 0.245.1",
+ "wit-parser 0.246.2",
 ]
 
 [[package]]
 name = "wasmtime-internal-component-util"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "935d9ab293ba27d1ec9aa7bc1b3a43993dbe961af2a8f23f90a11e1331b4c13f"
+checksum = "ab123ad511483a1b918399789d0cc7dea7c5c6476743df73949007b5b225fc74"
 
 [[package]]
 name = "wasmtime-internal-core"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9a3820b174f477d2a7083209d1ad5353fcdb11eaea434b2137b8681029460dd3"
+checksum = "4364d345719bba7fc4c435992ea1cb0c118f1e90a88c6e6f22a7a4fc507700c6"
 dependencies = [
  "anyhow",
  "hashbrown 0.16.1",
@@ -7493,9 +7493,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-internal-cranelift"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d1679d205caf9766c6aa309d45bb3e7c634d7725e3164404df33824b9f7c4fb7"
+checksum = "c5a3bc28a172037c7864128bb208017a02bba659a59c27acacc048c09e25c1fc"
 dependencies = [
  "cfg-if",
  "cranelift-codegen",
@@ -7511,7 +7511,7 @@ dependencies = [
  "smallvec",
  "target-lexicon",
  "thiserror 2.0.18",
- "wasmparser 0.245.1",
+ "wasmparser 0.246.2",
  "wasmtime-environ",
  "wasmtime-internal-core",
  "wasmtime-internal-unwinder",
@@ -7520,9 +7520,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-internal-fiber"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f1e505254058be5b0df458d670ee42d9eafe2349d04c1296e9dc01071dc20a85"
+checksum = "3c90a899a47d3da6e384e7b4cad61fdcb27535a395742b32440bdf9980ea83fa"
 dependencies = [
  "cc",
  "cfg-if",
@@ -7535,9 +7535,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-internal-jit-debug"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1c2e05b345f1773e59c20e6ad7298fd6857cdea245023d88bb659c96d8f0ea72"
+checksum = "84f364747aa74c686b18925918e5cfd615a73c9613c7a31fc1cd86f42df12fbe"
 dependencies = [
  "cc",
  "object",
@@ -7547,9 +7547,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-internal-jit-icache-coherence"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b86701b234a4643e3f111869aa792b3a05a06e02d486ee9cb6c04dae16b52dab"
+checksum = "c3ba98c1492f530833e0d3cc17dbb0c3c57c9f1bb3b078ae44bb55a233e43eba"
 dependencies = [
  "cfg-if",
  "libc",
@@ -7559,9 +7559,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-internal-unwinder"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f63558d801beb83dde9b336eb4ae049019aee26627926edb32cd119d7e4c83cd"
+checksum = "94b8f8a89e8f3660646f820c7d8310a67094156bb866e9d56f1b00892e011206"
 dependencies = [
  "cfg-if",
  "cranelift-codegen",
@@ -7572,9 +7572,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-internal-versioned-export-macros"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "737c4d956fc3a848541a064afb683dd2771132a6b125be5baaf95c4379aa47df"
+checksum = "7a12754f1ffc4a3300d56d324c418b8b32cf029606618da22c7d076213882a3f"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -7583,16 +7583,16 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-internal-winch"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f599b79545e3bba0b7913406055ebede5bb0dabee9ba2015ef25a9f4c9f47807"
+checksum = "4b06e4ed07adc579645e5c55c67b3138c49da2e468fad52d3db7b7a098ecc733"
 dependencies = [
  "cranelift-codegen",
  "gimli",
  "log",
  "object",
  "target-lexicon",
- "wasmparser 0.245.1",
+ "wasmparser 0.246.2",
  "wasmtime-environ",
  "wasmtime-internal-cranelift",
  "winch-codegen",
@@ -7600,22 +7600,22 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-internal-wit-bindgen"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2192a77a00b9a67800c2b4e1c70fb6abca79d6b529e53a2ef9dcdcc36090330d"
+checksum = "0f08787948e3c983799d616ef7dd57463253e9ca8bab6607eef8134f12353f70"
 dependencies = [
  "anyhow",
  "bitflags",
  "heck",
  "indexmap 2.14.0",
- "wit-parser 0.245.1",
+ "wit-parser 0.246.2",
 ]
 
 [[package]]
 name = "wasmtime-wasi"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "00c7daf53ba2f64aa089f47d9a54bec654a45b7b1b55660efecfb09a2e6cfbcf"
+checksum = "1b2f19834bc6edbc31ac95fdcfd5ddcd7643759265a1d545dec36ac6cc788ca8"
 dependencies = [
  "async-trait",
  "bitflags",
@@ -7643,9 +7643,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-wasi-http"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4253cb6ef17142415af6380bf860bb63b1e9d4142190855ae78f79f24a3dd09d"
+checksum = "7397d43b11cb9f30b6789dd5a76791d370a21b2f8099932c0e6e3e5b0a2584b6"
 dependencies = [
  "async-trait",
  "bytes",
@@ -7654,9 +7654,9 @@ dependencies = [
  "http-body 1.0.1",
  "http-body-util",
  "hyper 1.9.0",
- "rustls 0.22.4",
+ "rustls 0.23.40",
  "tokio",
- "tokio-rustls 0.25.0",
+ "tokio-rustls 0.26.4",
  "tokio-util",
  "tracing",
  "wasmtime",
@@ -7667,9 +7667,9 @@ dependencies = [
 
 [[package]]
 name = "wasmtime-wasi-io"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c2c9c6cd3daf62a4fb75ac4742c976fee1939686ffe461a366ce6446c58a58a0"
+checksum = "c3e0c6efdbaf90906016be9ed9ff17b7b58f393876287beebe5bd7fa1de54dbb"
 dependencies = [
  "async-trait",
  "bytes",
@@ -7771,9 +7771,9 @@ dependencies = [
 
 [[package]]
 name = "wiggle"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9c8cfd3db2f05619c6f36f257d84327c11546e28d61e3a1c1220aaad553bc4b0"
+checksum = "17b644ab90da80bbca28973192978ac452cbd876955bb209e6ff2cd1955e43a7"
 dependencies = [
  "bitflags",
  "thiserror 2.0.18",
@@ -7785,9 +7785,9 @@ dependencies = [
 
 [[package]]
 name = "wiggle-generate"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4bd7a197903e5b4ff5e13aef9c891960d71e92073600ecf4c86c7e795ac1c803"
+checksum = "521f9d558365357274d960340eb9eb4f4d768fafdc79f381fd2e13a85b925ebc"
 dependencies = [
  "heck",
  "proc-macro2",
@@ -7799,9 +7799,9 @@ dependencies = [
 
 [[package]]
 name = "wiggle-macro"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6410b86fcec207070d9372b215d3470bad67215e6bbac46981a16999c4abbc28"
+checksum = "8a386e86021363c9f0abd1e189e8f8a729d9b5aab2bb7172a3e40f2ab647a936"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -7842,9 +7842,9 @@ checksum = "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
 
 [[package]]
 name = "winch-codegen"
-version = "43.0.2"
+version = "44.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "52dbb0cf07b0dfe7b7a1ca8efb8f94ba98bd0fb144c411ea1665c78f0449e958"
+checksum = "f16496e92d2b232f9d195ae74f71a674aabae7b7fa722d39068836723d3b653c"
 dependencies = [
  "cranelift-assembler-x64",
  "cranelift-codegen",
@@ -7853,7 +7853,7 @@ dependencies = [
  "smallvec",
  "target-lexicon",
  "thiserror 2.0.18",
- "wasmparser 0.245.1",
+ "wasmparser 0.246.2",
  "wasmtime-environ",
  "wasmtime-internal-core",
  "wasmtime-internal-cranelift",
@@ -8389,6 +8389,25 @@ dependencies = [
  "serde_json",
  "unicode-xid",
  "wasmparser 0.245.1",
+]
+
+[[package]]
+name = "wit-parser"
+version = "0.246.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fd979042b5ff288607ccf3b314145435453f20fc67173195f91062d2289b204d"
+dependencies = [
+ "anyhow",
+ "hashbrown 0.16.1",
+ "id-arena",
+ "indexmap 2.14.0",
+ "log",
+ "semver",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "unicode-xid",
+ "wasmparser 0.246.2",
 ]
 
 [[package]]
