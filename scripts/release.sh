@@ -13,7 +13,7 @@
 #          PR via `gh`.
 #   tag    From an up-to-date local `main`, create a GPG-signed
 #          annotated tag `<trigger>-v<version>` for each pair and push
-#          them atomically. Versions in Cargo.toml on `main` must
+#          them one at a time. Versions in Cargo.toml on `main` must
 #          already match the values you pass.
 #   all    Run `bump`, wait for you to confirm the PR has merged, then
 #          run `tag`.
@@ -346,8 +346,17 @@ cmd_tag() {
         return 0
     fi
 
-    log "Pushing tags atomically: ${tags[*]}"
-    run git -C "$REPO_ROOT" push --atomic "$REMOTE" "${tags[@]}"
+    # Push tags one at a time, NOT in a single push. GitHub does not create
+    # push events -- and therefore does not trigger the release workflows --
+    # when more than three tags arrive in a single push. Pushing each tag on
+    # its own keeps every `<trigger>-v<version>` release workflow firing no
+    # matter how many triggers are released at once.
+    # https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#push
+    local tag
+    for tag in "${tags[@]}"; do
+        log "Pushing tag $tag"
+        run git -C "$REPO_ROOT" push "$REMOTE" "$tag"
+    done
 }
 
 #------------------------------------------------------------------------------
