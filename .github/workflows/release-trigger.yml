@@ -149,11 +149,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh release delete ${{ env.RELEASE_TAG }} --cleanup-tag
 
-      # If the tag is anything other than <trigger>-vX.X.X, consider as a prerelease
+      # If the resolved release tag is anything other than <trigger>-vX.Y.Z,
+      # consider it a prerelease. Note: we key off RELEASE_TAG (resolved above)
+      # rather than github.ref_name, because on workflow_dispatch runs
+      # github.ref_name is the branch (e.g. 'main'), not the tag.
       - name: check if pre-release
         shell: bash
         run: |
-          if [[ ! "${{ github.ref_name }}" =~ ^[a-z]+-v[0-9]+.[0-9]+.[0-9]+$ ]]
+          if [[ ! "${{ env.RELEASE_TAG }}" =~ ^[a-z]+-v[0-9]+\.[0-9]+\.[0-9]+$ ]]
           then
             echo "PRERELEASE=--prerelease" >> "$GITHUB_ENV"
           fi
@@ -182,13 +185,24 @@ jobs:
       # computed from the freshly-uploaded release tarballs), upload it as
       # `<package>.json` plus a `checksums-<tag>.txt` asset, and ping the
       # spin-plugin-releaser bot to open a PR against
-      # github.com/spinframework/spin-plugins. Skipped for canary builds —
-      # the action's "canary" code path tries to read package.version from
-      # Cargo.toml, which fails on this virtual workspace, and the bot
-      # ignores prereleases anyway.
+      # github.com/spinframework/spin-plugins. Skipped for canary and
+      # prerelease builds — the action's prerelease/"post" code path tries to
+      # read package.version from Cargo.toml, which fails on this virtual
+      # workspace, and the bot ignores prereleases anyway.
+      #
+      # The action derives the plugin version and target release solely from
+      # GITHUB_REF (via github.context.ref); it ignores our RELEASE_TAG env.
+      # On a workflow_dispatch run GITHUB_REF is 'refs/heads/main', which sends
+      # the action down its 'canary' code path and makes it read
+      # package.version from the workspace-root Cargo.toml (no [package]) ->
+      # crash. We override GITHUB_REF to the resolved tag so the action always
+      # sees a proper 'refs/tags/<trigger>-vX.Y.Z' ref, for both tag pushes and
+      # manual dispatch re-runs.
       - name: Open spin-plugins manifest PR
-        if: inputs.canary != true
+        if: inputs.canary != true && env.PRERELEASE == ''
         uses: rajatjindal/spin-plugin-releaser@v1.0.17
+        env:
+          GITHUB_REF: refs/tags/${{ env.RELEASE_TAG }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           template_file: crates/${{ inputs.crate }}/.spin-plugin.json.tmpl
