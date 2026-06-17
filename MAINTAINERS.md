@@ -10,7 +10,6 @@ This file follows the
 | Brian Hardock  | fibonacci1729   |
 | Ivan Towlson   | itowlson        |
 | Kate Goldenring| kate-goldenring |
-| Vaughn Dice    | vdice           |
 
 ## Emeritus Maintainers
 
@@ -21,6 +20,7 @@ This file follows the
 | Radu Matei      | radu-matei      | spin-trigger-cron, spin-trigger-command  |
 | Suneet Nangia    | suneetnangia    | spin-trigger-mqtt                        |
 | Thorsten Hans    | ThorstenHans    | spin-trigger-command                     |
+| Vaughn Dice      | vdice           | spin-trigger-command, spin-trigger-sqs   |
 
 Per governance, emeritus maintainers are welcome to return to active
 maintainership via nomination by an existing maintainer followed by agreement
