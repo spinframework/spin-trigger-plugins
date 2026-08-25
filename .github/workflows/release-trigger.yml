@@ -21,7 +21,7 @@ on:
         description: "Rust toolchain version"
         required: false
         type: string
-        default: "1.93"
+        default: "1.95"
       spin_version:
         description: "Spin CLI version to install"
         required: false

@@ -7,7 +7,7 @@ type Command = FactorsTriggerCommand<CommandTrigger, FactorsBuilder>;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    spin_telemetry::init(build_info())?;
+    spin_telemetry::init(build_info(), vec![])?;
 
     let t = Command::parse();
     t.run().await
