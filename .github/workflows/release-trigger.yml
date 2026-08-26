@@ -164,9 +164,11 @@ jobs:
       - name: Extract Spin dependency version
         shell: bash
         run: |
-          # Extract either 'tag = "vX.Y.Z"' or 'rev = "..."' from the first spin-app dependency
-          SPIN_TAG=$(grep -m1 'spin-app.*tag' Cargo.toml | sed -n 's/.*tag = "\([^"]*\)".*/\1/p')
-          SPIN_REV=$(grep -m1 'spin-app.*rev' Cargo.toml | sed -n 's/.*rev = "\([^"]*\)".*/\1/p')
+          # Extract either 'tag = "vX.Y.Z"' or 'rev = "..."' from the first spin-app dependency.
+          # `|| true` because only one of the two patterns matches, and an unmatched
+          # grep would otherwise abort the step under `set -e -o pipefail`.
+          SPIN_TAG=$(grep -m1 'spin-app.*tag' Cargo.toml | sed -n 's/.*tag = "\([^"]*\)".*/\1/p') || true
+          SPIN_REV=$(grep -m1 'spin-app.*rev' Cargo.toml | sed -n 's/.*rev = "\([^"]*\)".*/\1/p') || true
 
           if [ -n "$SPIN_TAG" ]; then
             echo "SPIN_VERSION=$SPIN_TAG" >> "$GITHUB_ENV"
