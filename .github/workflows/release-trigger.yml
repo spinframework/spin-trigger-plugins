@@ -170,12 +170,13 @@ jobs:
           SPIN_TAG=$(grep -m1 'spin-app.*tag' Cargo.toml | sed -n 's/.*tag = "\([^"]*\)".*/\1/p') || true
           SPIN_REV=$(grep -m1 'spin-app.*rev' Cargo.toml | sed -n 's/.*rev = "\([^"]*\)".*/\1/p') || true
 
+          # Not SPIN_VERSION: the Spin setup action already exports that as the CLI version.
           if [ -n "$SPIN_TAG" ]; then
-            echo "SPIN_VERSION=$SPIN_TAG" >> "$GITHUB_ENV"
+            echo "SPIN_DEP_VERSION=$SPIN_TAG" >> "$GITHUB_ENV"
           elif [ -n "$SPIN_REV" ]; then
-            echo "SPIN_VERSION=$SPIN_REV" >> "$GITHUB_ENV"
+            echo "SPIN_DEP_VERSION=$SPIN_REV" >> "$GITHUB_ENV"
           else
-            echo "SPIN_VERSION=unknown" >> "$GITHUB_ENV"
+            echo "SPIN_DEP_VERSION=unknown" >> "$GITHUB_ENV"
           fi
 
       - name: create GitHub release
@@ -184,7 +185,7 @@ jobs:
         run: |
           gh release create ${{ env.RELEASE_TAG }} crates/${{ inputs.crate }}/artifacts/*/*.tar.gz \
             --title ${{ env.RELEASE_TAG }} \
-            --notes "Based off Spin ${{ env.SPIN_VERSION }} dependencies" \
+            --notes "Based off Spin ${{ env.SPIN_DEP_VERSION }} dependencies" \
             ${{ env.PRERELEASE }}
 
       # Canary builds: upload the un-shaed merged manifest produced above.
