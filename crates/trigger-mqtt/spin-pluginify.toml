@@ -1,6 +1,6 @@
 name = "trigger-mqtt"
 description = "A Spin trigger for MQTT events"
-version = "0.9.2"
+version = { from = "Cargo.toml" }
 spin_compatibility = ">=2.0"
 license = "Apache-2.0"
 package = "../../target/release/trigger-mqtt"
