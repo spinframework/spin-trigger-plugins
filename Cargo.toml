@@ -39,12 +39,12 @@ aws-config = { version = "1.1.7", features = ["behavior-version-latest", "rt-tok
 aws-sdk-sqs = { version = "1.93.0", features = ["rustls"], default-features = false }
 
 # Spin (pinned to a single revision across all triggers).
-spin-app = { git = "https://github.com/spinframework/spin", tag = "v4.2.6", default-features = false }
-spin-core = { git = "https://github.com/spinframework/spin", tag = "v4.2.6", default-features = false }
-spin-expressions = { git = "https://github.com/spinframework/spin", tag = "v4.2.6", default-features = false }
-spin-factor-variables = { git = "https://github.com/spinframework/spin", tag = "v4.2.6", default-features = false }
-spin-factor-wasi = { git = "https://github.com/spinframework/spin", tag = "v4.2.6", default-features = false }
-spin-factors = { git = "https://github.com/spinframework/spin", tag = "v4.2.6", default-features = false }
-spin-runtime-factors = { git = "https://github.com/spinframework/spin", tag = "v4.2.6", default-features = false }
-spin-telemetry = { git = "https://github.com/spinframework/spin", tag = "v4.2.6", default-features = false }
-spin-trigger = { git = "https://github.com/spinframework/spin", tag = "v4.2.6", default-features = false }
+spin-app = { git = "https://github.com/spinframework/spin", tag = "v4.3.0", default-features = false }
+spin-core = { git = "https://github.com/spinframework/spin", tag = "v4.3.0", default-features = false }
+spin-expressions = { git = "https://github.com/spinframework/spin", tag = "v4.3.0", default-features = false }
+spin-factor-variables = { git = "https://github.com/spinframework/spin", tag = "v4.3.0", default-features = false }
+spin-factor-wasi = { git = "https://github.com/spinframework/spin", tag = "v4.3.0", default-features = false }
+spin-factors = { git = "https://github.com/spinframework/spin", tag = "v4.3.0", default-features = false }
+spin-runtime-factors = { git = "https://github.com/spinframework/spin", tag = "v4.3.0", default-features = false }
+spin-telemetry = { git = "https://github.com/spinframework/spin", tag = "v4.3.0", default-features = false }
+spin-trigger = { git = "https://github.com/spinframework/spin", tag = "v4.3.0", default-features = false }

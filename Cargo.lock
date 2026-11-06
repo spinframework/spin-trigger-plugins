@@ -1112,9 +1112,9 @@ dependencies = [
 
 [[package]]
 name = "cmov"
-version = "0.5.3"
+version = "0.5.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3f88a43d011fc4a6876cb7344703e297c71dda42494fee094d5f7c76bf13f746"
+checksum = "0c9ea0ac24bc397ab3c98583a3c9ba74fa56b09a4449bbe172b9b1ddb016027a"
 
 [[package]]
 name = "cobs"
@@ -1489,9 +1489,9 @@ dependencies = [
 
 [[package]]
 name = "ctutils"
-version = "0.4.2"
+version = "0.4.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7d5515a3834141de9eafb9717ad39eea8247b5674e6066c404e8c4b365d2a29e"
+checksum = "261af4dc7a06ea8a527a8717d8cbba3417530d6ea14e1edb3de6b67806be474f"
 dependencies = [
  "cmov",
 ]
@@ -2426,12 +2426,12 @@ dependencies = [
  "http 1.5.0",
  "hyper 1.9.0",
  "hyper-util",
- "rustls 0.23.45",
+ "rustls 0.23.46",
  "rustls-native-certs 0.8.3",
  "tokio",
  "tokio-rustls 0.26.4",
  "tower-service",
- "webpki-roots 1.0.7",
+ "webpki-roots 1.0.11",
 ]
 
 [[package]]
@@ -3912,7 +3912,7 @@ dependencies = [
  "quinn-proto",
  "quinn-udp",
  "rustc-hash",
- "rustls 0.23.45",
+ "rustls 0.23.46",
  "socket2 0.6.3",
  "thiserror 2.0.18",
  "tokio",
@@ -3933,7 +3933,7 @@ dependencies = [
  "rand_pcg",
  "ring",
  "rustc-hash",
- "rustls 0.23.45",
+ "rustls 0.23.46",
  "rustls-pki-types",
  "slab",
  "thiserror 2.0.18",
@@ -4293,7 +4293,7 @@ dependencies = [
  "percent-encoding",
  "pin-project-lite",
  "quinn",
- "rustls 0.23.45",
+ "rustls 0.23.46",
  "rustls-native-certs 0.8.3",
  "rustls-pki-types",
  "serde",
@@ -4312,7 +4312,7 @@ dependencies = [
  "wasm-bindgen-futures",
  "wasm-streams",
  "web-sys",
- "webpki-roots 1.0.7",
+ "webpki-roots 1.0.11",
 ]
 
 [[package]]
@@ -4370,7 +4370,7 @@ dependencies = [
  "log",
  "rustls-native-certs 0.8.3",
  "rustls-pemfile",
- "rustls-webpki 0.103.15",
+ "rustls-webpki 0.103.16",
  "thiserror 2.0.18",
  "tokio",
  "tokio-rustls 0.26.4",
@@ -4517,15 +4517,15 @@ dependencies = [
 
 [[package]]
 name = "rustls"
-version = "0.23.45"
+version = "0.23.46"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0d41d731c7d2f962d1ccc364cec258de3c0e93b38c2fb3ba97ac74513048d634"
+checksum = "48e13bd8c0e9365c43cfa5c9e8f9ad49d3c8444926c9aac819e0e4dc503c8fdf"
 dependencies = [
  "log",
  "once_cell",
  "ring",
  "rustls-pki-types",
- "rustls-webpki 0.103.15",
+ "rustls-webpki 0.103.16",
  "subtle",
  "zeroize",
 ]
@@ -4585,10 +4585,10 @@ dependencies = [
  "jni",
  "log",
  "once_cell",
- "rustls 0.23.45",
+ "rustls 0.23.46",
  "rustls-native-certs 0.8.3",
  "rustls-platform-verifier-android",
- "rustls-webpki 0.103.15",
+ "rustls-webpki 0.103.16",
  "security-framework 3.7.0",
  "security-framework-sys",
  "webpki-root-certs",
@@ -4624,9 +4624,9 @@ dependencies = [
 
 [[package]]
 name = "rustls-webpki"
-version = "0.103.15"
+version = "0.103.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f3c3cf1d8b1e7d4927e2d154c3fcb02979afb9939629c62cd9048d4f07b60ac2"
+checksum = "4443b1b6d39d7c663139942cc4558262562d2c84123bb6282ef177009ca8b281"
 dependencies = [
  "ring",
  "rustls-pki-types",
@@ -5017,8 +5017,8 @@ dependencies = [
 
 [[package]]
 name = "spin-app"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "serde",
@@ -5028,8 +5028,8 @@ dependencies = [
 
 [[package]]
 name = "spin-capabilities"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "wac-graph",
@@ -5039,8 +5039,8 @@ dependencies = [
 
 [[package]]
 name = "spin-common"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "clap",
@@ -5053,8 +5053,8 @@ dependencies = [
 
 [[package]]
 name = "spin-componentize"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "tracing",
@@ -5067,8 +5067,8 @@ dependencies = [
 
 [[package]]
 name = "spin-compose"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5087,8 +5087,8 @@ dependencies = [
 
 [[package]]
 name = "spin-connection-semaphore"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "spin-telemetry",
@@ -5098,8 +5098,8 @@ dependencies = [
 
 [[package]]
 name = "spin-core"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5126,8 +5126,8 @@ dependencies = [
 
 [[package]]
 name = "spin-expressions"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5138,8 +5138,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-key-value"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "serde",
@@ -5160,8 +5160,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-llm"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5180,8 +5180,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-otel"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "indexmap 2.14.0",
@@ -5199,8 +5199,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-outbound-http"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "bytes",
@@ -5213,7 +5213,7 @@ dependencies = [
  "opentelemetry-semantic-conventions",
  "pin-project-lite",
  "reqwest",
- "rustls 0.23.45",
+ "rustls 0.23.46",
  "serde",
  "spin-factor-otel",
  "spin-factor-outbound-networking",
@@ -5227,6 +5227,7 @@ dependencies = [
  "tower-service",
  "tracing",
  "tracing-opentelemetry",
+ "url",
  "wasmtime",
  "wasmtime-wasi",
  "wasmtime-wasi-http",
@@ -5234,8 +5235,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-outbound-mqtt"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "rumqttc",
@@ -5252,8 +5253,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-outbound-mysql"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "futures",
@@ -5275,15 +5276,15 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-outbound-networking"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "futures-util",
  "http 1.5.0",
  "ip_network",
  "opentelemetry-semantic-conventions",
- "rustls 0.23.45",
+ "rustls 0.23.46",
  "rustls-pki-types",
  "rustls-platform-verifier",
  "serde",
@@ -5303,8 +5304,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-outbound-pg"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "bytes",
@@ -5339,8 +5340,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-outbound-redis"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "opentelemetry-semantic-conventions",
@@ -5358,8 +5359,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-sqlite"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "async-trait",
  "opentelemetry-semantic-conventions",
@@ -5377,8 +5378,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-variables"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "spin-core",
  "spin-expressions",
@@ -5391,8 +5392,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factor-wasi"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "async-trait",
  "bytes",
@@ -5409,8 +5410,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factors"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "serde",
@@ -5423,8 +5424,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factors-derive"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -5433,8 +5434,8 @@ dependencies = [
 
 [[package]]
 name = "spin-factors-executor"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "spin-app",
@@ -5447,8 +5448,8 @@ dependencies = [
 
 [[package]]
 name = "spin-key-value-aws"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "async-once-cell",
@@ -5463,8 +5464,8 @@ dependencies = [
 
 [[package]]
 name = "spin-key-value-azure"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5480,8 +5481,8 @@ dependencies = [
 
 [[package]]
 name = "spin-key-value-redis"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "redis",
@@ -5494,8 +5495,8 @@ dependencies = [
 
 [[package]]
 name = "spin-key-value-spin"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "rusqlite",
@@ -5509,8 +5510,8 @@ dependencies = [
 
 [[package]]
 name = "spin-llm-remote-http"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "futures",
@@ -5524,8 +5525,8 @@ dependencies = [
 
 [[package]]
 name = "spin-locked-app"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5538,8 +5539,8 @@ dependencies = [
 
 [[package]]
 name = "spin-manifest"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "indexmap 2.14.0",
@@ -5575,8 +5576,8 @@ dependencies = [
 
 [[package]]
 name = "spin-outbound-networking-config"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "futures-util",
@@ -5591,13 +5592,13 @@ dependencies = [
 
 [[package]]
 name = "spin-resource-table"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 
 [[package]]
 name = "spin-runtime-config"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "serde",
@@ -5631,8 +5632,8 @@ dependencies = [
 
 [[package]]
 name = "spin-runtime-factors"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "clap",
@@ -5660,8 +5661,8 @@ dependencies = [
 
 [[package]]
 name = "spin-serde"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "base64 0.22.1",
@@ -5673,8 +5674,8 @@ dependencies = [
 
 [[package]]
 name = "spin-sqlite"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "serde",
  "spin-factor-sqlite",
@@ -5686,8 +5687,8 @@ dependencies = [
 
 [[package]]
 name = "spin-sqlite-inproc"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5701,8 +5702,8 @@ dependencies = [
 
 [[package]]
 name = "spin-sqlite-libsql"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -5714,8 +5715,8 @@ dependencies = [
 
 [[package]]
 name = "spin-telemetry"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "http 0.2.12",
@@ -5734,16 +5735,16 @@ dependencies = [
 
 [[package]]
 name = "spin-tls"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
- "rustls 0.23.45",
+ "rustls 0.23.46",
 ]
 
 [[package]]
 name = "spin-trigger"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "clap",
@@ -5772,8 +5773,8 @@ dependencies = [
 
 [[package]]
 name = "spin-variables-azure"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "azure_core 0.20.0",
  "azure_identity 0.20.0",
@@ -5787,8 +5788,8 @@ dependencies = [
 
 [[package]]
 name = "spin-variables-env"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "dotenvy",
  "serde",
@@ -5801,8 +5802,8 @@ dependencies = [
 
 [[package]]
 name = "spin-variables-static"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "serde",
  "serde_json",
@@ -5814,8 +5815,8 @@ dependencies = [
 
 [[package]]
 name = "spin-variables-vault"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "serde",
  "spin-expressions",
@@ -5826,8 +5827,8 @@ dependencies = [
 
 [[package]]
 name = "spin-wasi-async"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "spin-core",
@@ -5836,8 +5837,8 @@ dependencies = [
 
 [[package]]
 name = "spin-world"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -6022,8 +6023,8 @@ dependencies = [
 
 [[package]]
 name = "terminal"
-version = "4.2.6"
-source = "git+https://github.com/spinframework/spin?tag=v4.2.6#2ecc7e7280355948a10898acf5a6f4804d7dbfdd"
+version = "4.3.0"
+source = "git+https://github.com/spinframework/spin?tag=v4.3.0#83b512fdf5a11783fde1d8546117b672fe9dd46e"
 dependencies = [
  "termcolor",
 ]
@@ -6252,7 +6253,7 @@ version = "0.26.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1729aa945f29d91ba541258c8df89027d5792d85a8841fb65e8bf0f4ede4ef61"
 dependencies = [
- "rustls 0.23.45",
+ "rustls 0.23.46",
  "tokio",
 ]
 
@@ -6579,7 +6580,7 @@ dependencies = [
 
 [[package]]
 name = "trigger-command"
-version = "0.7.6"
+version = "0.7.7"
 dependencies = [
  "anyhow",
  "clap",
@@ -6598,7 +6599,7 @@ dependencies = [
 
 [[package]]
 name = "trigger-cron"
-version = "0.6.6"
+version = "0.6.7"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -6617,7 +6618,7 @@ dependencies = [
 
 [[package]]
 name = "trigger-mqtt"
-version = "0.9.6"
+version = "0.9.7"
 dependencies = [
  "anyhow",
  "clap",
@@ -6640,7 +6641,7 @@ dependencies = [
 
 [[package]]
 name = "trigger-sqs"
-version = "0.14.6"
+version = "0.14.7"
 dependencies = [
  "anyhow",
  "aws-config",
@@ -6648,7 +6649,7 @@ dependencies = [
  "clap",
  "futures",
  "openssl",
- "rustls 0.23.45",
+ "rustls 0.23.46",
  "serde",
  "spin-core",
  "spin-factors",
@@ -7508,7 +7509,7 @@ dependencies = [
  "hyper 1.9.0",
  "pin-project-lite",
  "rustix",
- "rustls 0.23.45",
+ "rustls 0.23.46",
  "tokio",
  "tokio-rustls 0.26.4",
  "tokio-util",
@@ -7516,7 +7517,7 @@ dependencies = [
  "wasmtime",
  "wasmtime-wasi",
  "wasmtime-wasi-io",
- "webpki-roots 1.0.7",
+ "webpki-roots 1.0.11",
 ]
 
 [[package]]
@@ -7585,9 +7586,9 @@ dependencies = [
 
 [[package]]
 name = "webpki-root-certs"
-version = "1.0.7"
+version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f31141ce3fc3e300ae89b78c0dd67f9708061d1d2eda54b8209346fd6be9a92c"
+checksum = "e49d0e65abc00c142e8f9428da991da9f1a250c39be97459901eb12b9b49f62a"
 dependencies = [
  "rustls-pki-types",
 ]
@@ -7598,14 +7599,14 @@ version = "0.26.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "521bc38abb08001b01866da9f51eb7c5d647a19260e00054a8c7fd5f9e57f7a9"
 dependencies = [
- "webpki-roots 1.0.7",
+ "webpki-roots 1.0.11",
 ]
 
 [[package]]
 name = "webpki-roots"
-version = "1.0.7"
+version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "52f5ee44c96cf55f1b349600768e3ece3a8f26010c05265ab73f945bb1a2eb9d"
+checksum = "f5f280bbb2b287bc8e7de7e3852945a0ff50d1bbcb5ed42b6c7a568c546df171"
 dependencies = [
  "rustls-pki-types",
 ]
@@ -8409,27 +8410,27 @@ checksum = "b8848ee67ecc8aedbaf3e4122217aff892639231befc6a1b58d29fff4c2cabaa"
 
 [[package]]
 name = "zstd"
-version = "0.13.3"
+version = "0.13.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e91ee311a569c327171651566e07972200e76fcfe2242a4fa446149a3881c08a"
+checksum = "cdb02c3132d251ab1606e9fc913a7da6c6ed08cc263df15edf082e1dc497d157"
 dependencies = [
  "zstd-safe",
 ]
 
 [[package]]
 name = "zstd-safe"
-version = "7.2.4"
+version = "7.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8f49c4d5f0abb602a93fb8736af2a4f4dd9512e36f7f570d66e65ff867ed3b9d"
+checksum = "1c8ea04668f5de8d8d51051714ba560c9536519cadcdb8829bba4fe2ad159b03"
 dependencies = [
  "zstd-sys",
 ]
 
 [[package]]
 name = "zstd-sys"
-version = "2.0.16+zstd.1.5.7"
+version = "2.1.2+zstd.1.5.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "91e19ebc2adc8f83e43039e79776e3fda8ca919132d68a1fed6a5faca2683748"
+checksum = "481ada9c543b2323cbb7bbdbb5249177fbf0188ed959ed2c15e4b22421c84ed3"
 dependencies = [
  "cc",
  "pkg-config",
